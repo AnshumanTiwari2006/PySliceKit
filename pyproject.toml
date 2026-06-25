@@ -33,9 +33,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/YOUR_USERNAME_HERE/PySliceKit"
-Documentation = "https://YOUR_USERNAME_HERE.github.io/PySliceKit"
-Repository = "https://github.com/YOUR_USERNAME_HERE/PySliceKit.git"
-Issues = "https://github.com/YOUR_USERNAME_HERE/PySliceKit/issues"
-Changelog = "https://github.com/YOUR_USERNAME_HERE/PySliceKit/blob/main/CHANGELOG.md"
-"Discussion Board" = "https://github.com/YOUR_USERNAME_HERE/PySliceKit/discussions"
+Homepage = "https://github.com/AnshumanTiwari2006/PySliceKit"
+Documentation = "https://AnshumanTiwari2006.github.io/PySliceKit"
+Repository = "https://github.com/AnshumanTiwari2006/PySliceKit.git"
+Issues = "https://github.com/AnshumanTiwari2006/PySliceKit/issues"
+Changelog = "https://github.com/AnshumanTiwari2006/PySliceKit/blob/main/CHANGELOG.md"
+"Discussion Board" = "https://github.com/AnshumanTiwari2006/PySliceKit/discussions"

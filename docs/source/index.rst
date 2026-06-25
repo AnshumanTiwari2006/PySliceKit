@@ -4,13 +4,13 @@ Welcome to PySliceKit's documentation!
 .. image:: https://badge.fury.io/py/pyslicekit.svg
     :target: https://pypi.org/project/pyslicekit/
 .. image:: https://img.shields.io/badge/Tests-passing-brightgreen.svg
-    :target: https://github.com/YOUR_USERNAME_HERE/PySliceKit/actions
+    :target: https://github.com/AnshumanTiwari2006/PySliceKit/actions
 .. image:: https://img.shields.io/badge/License-MIT-blue.svg
     :target: https://opensource.org/licenses/MIT
-.. image:: https://img.shields.io/github/stars/YOUR_USERNAME_HERE/PySliceKit.svg?style=social&label=Star
-    :target: https://github.com/YOUR_USERNAME_HERE/PySliceKit
+.. image:: https://img.shields.io/github/stars/AnshumanTiwari2006/PySliceKit.svg?style=social&label=Star
+    :target: https://github.com/AnshumanTiwari2006/PySliceKit
 
-**GitHub Repository:** `github.com/YOUR_USERNAME_HERE/PySliceKit <https://github.com/YOUR_USERNAME_HERE/PySliceKit>`_
+**GitHub Repository:** `github.com/AnshumanTiwari2006/PySliceKit <https://github.com/AnshumanTiwari2006/PySliceKit>`_
 
 **The Problem:** Relying on global metrics like "95% accuracy" masks critical algorithmic bias, data drift, and localized underfitting where your model is secretly failing.
 

@@ -1,10 +1,10 @@
-# PySliceKit 🍰
+# PySliceKit
 
 [![PyPI version](https://badge.fury.io/py/pyslicekit.svg)](https://badge.fury.io/py/pyslicekit)
-[![Tests](https://img.shields.io/badge/Tests-passing-brightgreen.svg)](https://github.com/YOUR_USERNAME_HERE/PySliceKit/actions/workflows/test.yml)
-[![Docs](https://img.shields.io/badge/docs-passing-brightgreen.svg)](https://YOUR_USERNAME_HERE.github.io/PySliceKit/)
+[![Tests](https://img.shields.io/badge/Tests-passing-brightgreen.svg)](https://github.com/AnshumanTiwari2006/PySliceKit/actions/workflows/test.yml)
+[![Docs](https://img.shields.io/badge/docs-passing-brightgreen.svg)](https://AnshumanTiwari2006.github.io/PySliceKit/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/YOUR_USERNAME_HERE/PySliceKit.svg?style=social&label=Star)](https://github.com/YOUR_USERNAME_HERE/PySliceKit)
+[![GitHub stars](https://img.shields.io/github/stars/AnshumanTiwari2006/PySliceKit.svg?style=social&label=Star)](https://github.com/AnshumanTiwari2006/PySliceKit)
 
 **PySliceKit** is a Python library that helps you automatically discover exactly where your machine learning models are secretly failing.
 
@@ -14,10 +14,17 @@ PySliceKit solves this by automatically "slicing" your feature dataset, evaluati
 
 ---
 
-## 📚 Full Documentation
-**[Read the full PySliceKit Documentation here](https://YOUR_USERNAME_HERE.github.io/PySliceKit/)** for the Getting Started guide, complete User Guide, and comprehensive API Reference.
+## Quick Links
+* **Documentation**: [AnshumanTiwari2006.github.io/PySliceKit](https://AnshumanTiwari2006.github.io/PySliceKit/)
+* **Source Code**: [GitHub Repository](https://github.com/AnshumanTiwari2006/PySliceKit)
+* **Changelog**: [CHANGELOG.md](https://github.com/AnshumanTiwari2006/PySliceKit/blob/main/CHANGELOG.md)
+* **Discussions**: [Community Board](https://github.com/AnshumanTiwari2006/PySliceKit/discussions)
+* **Issue Tracker**: [Bug Reports](https://github.com/AnshumanTiwari2006/PySliceKit/issues)
 
-## 🚀 Quick Start
+## Full Documentation
+**[Read the full PySliceKit Documentation here](https://AnshumanTiwari2006.github.io/PySliceKit/)** for the Getting Started guide, complete User Guide, and comprehensive API Reference.
+
+## Quick Start
 
 ### Installation
 ```bash
@@ -59,11 +66,11 @@ When you call `pyslicekit.evaluate()`, the library automatically chunks your tes
 ### What does the output show?
 You will automatically receive two powerful visualizations. The **Heatmap** shows the raw gaps across all subgroups—the darker the red, the worse your model performs compared to its global average.
 
-![Heatmap Visualization](docs/source/_static/cancer_heatmap.png)
+![Heatmap Visualization](https://raw.githubusercontent.com/AnshumanTiwari2006/PySliceKit/main/docs/source/_static/cancer_heatmap.png)
 
 The **Worst Segments Bar Chart** automatically extracts and sorts the worst offenders. Statistically significant failures are solid red, while non-significant drops are faded, giving you a perfectly prioritized list of areas to fix.
 
-![Bar Chart Visualization](docs/source/_static/cancer_bar.png)
+![Bar Chart Visualization](https://raw.githubusercontent.com/AnshumanTiwari2006/PySliceKit/main/docs/source/_static/cancer_bar.png)
 
 ## Features
 * **Model Agnostic**: Works with any model that has a `.predict()` method (scikit-learn, XGBoost, PyTorch, etc.).
@@ -72,4 +79,4 @@ The **Worst Segments Bar Chart** automatically extracts and sorts the worst offe
 * **Exporters**: Easily export findings to JSON or CSV for audits or dashboards.
 
 ## License
-Licensed under the [MIT License](https://github.com/YOUR_USERNAME_HERE/PySliceKit/blob/main/LICENSE) (See GitHub for details).
+Licensed under the [MIT License](https://github.com/AnshumanTiwari2006/PySliceKit/blob/main/LICENSE) (See GitHub for details).
