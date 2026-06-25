@@ -23,6 +23,7 @@ def test_breast_cancer_binary_classification():
         y_pred=model.predict(X_test),
         slice_cols=["mean radius"],
         metric="f1",
+        min_samples=1,
         render_visuals=False
     )
     assert len(results) > 0
@@ -45,6 +46,7 @@ def test_california_housing_regression():
         slice_cols=["HouseAge", "MedInc"],
         metric="mae",
         depth=2,
+        min_samples=1,
         render_visuals=False
     )
     assert len(results) > 0
@@ -67,6 +69,7 @@ def test_iris_multiclass_binarized():
         y_pred=model.predict(X_test),
         slice_cols=["sepal length (cm)"],
         metric="accuracy",
+        min_samples=1,
         render_visuals=False
     )
     assert len(results) > 0
@@ -88,6 +91,7 @@ def test_diabetes_regression():
         y_pred=model.predict(X_test),
         slice_cols=["age", "sex"],
         metric="rmse",
+        min_samples=1,
         render_visuals=False
     )
     assert len(results) > 0
@@ -110,6 +114,7 @@ def test_wine_classification_binarized():
         slice_cols=["alcohol", "malic_acid"],
         metric="accuracy",
         depth=1,
+        min_samples=1,
         render_visuals=False
     )
     assert len(results) > 0
