@@ -1,0 +1,498 @@
+[
+  {
+    "segment": "HouseAge=Q4(37\u201352) & AveRooms=Q4(6.01\u2013133)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q4(37\u201352)"
+      ],
+      [
+        "AveRooms",
+        "Q4(6.01\u2013133)"
+      ]
+    ],
+    "n": 129,
+    "metric": "mae",
+    "metric_value": 0.4766999348837222,
+    "overall_metric": 0.32754256845930246,
+    "gap": 0.14915736642441974,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q3(29\u201337) & AveRooms=Q4(6.01\u2013133)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q3(29\u201337)"
+      ],
+      [
+        "AveRooms",
+        "Q4(6.01\u2013133)"
+      ]
+    ],
+    "n": 189,
+    "metric": "mae",
+    "metric_value": 0.42942033015873093,
+    "overall_metric": 0.32754256845930246,
+    "gap": 0.10187776169942847,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q3(29\u201337) & AveRooms=Q2(4.4\u20135.19)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q3(29\u201337)"
+      ],
+      [
+        "AveRooms",
+        "Q2(4.4\u20135.19)"
+      ]
+    ],
+    "n": 295,
+    "metric": "mae",
+    "metric_value": 0.23372120135593222,
+    "overall_metric": 0.32754256845930246,
+    "gap": -0.09382136710337025,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q3(29\u201337) & AveRooms=Q1(0.845\u20134.4)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q3(29\u201337)"
+      ],
+      [
+        "AveRooms",
+        "Q1(0.845\u20134.4)"
+      ]
+    ],
+    "n": 255,
+    "metric": "mae",
+    "metric_value": 0.23937159725490206,
+    "overall_metric": 0.32754256845930246,
+    "gap": -0.0881709712044004,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "AveRooms=Q4(6.01\u2013133)",
+    "slice_def": [
+      [
+        "AveRooms",
+        "Q4(6.01\u2013133)"
+      ]
+    ],
+    "n": 1032,
+    "metric": "mae",
+    "metric_value": 0.40014233701550433,
+    "overall_metric": 0.32754256845930246,
+    "gap": 0.07259976855620187,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q1(0.999\u201318) & AveRooms=Q4(6.01\u2013133)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q1(0.999\u201318)"
+      ],
+      [
+        "AveRooms",
+        "Q4(6.01\u2013133)"
+      ]
+    ],
+    "n": 414,
+    "metric": "mae",
+    "metric_value": 0.3923902103864735,
+    "overall_metric": 0.32754256845930246,
+    "gap": 0.06484764192717102,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "AveRooms=Q2(4.4\u20135.19)",
+    "slice_def": [
+      [
+        "AveRooms",
+        "Q2(4.4\u20135.19)"
+      ]
+    ],
+    "n": 1032,
+    "metric": "mae",
+    "metric_value": 0.27406477054263567,
+    "overall_metric": 0.32754256845930246,
+    "gap": -0.05347779791666679,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q1(0.999\u201318) & AveRooms=Q3(5.19\u20136.01)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q1(0.999\u201318)"
+      ],
+      [
+        "AveRooms",
+        "Q3(5.19\u20136.01)"
+      ]
+    ],
+    "n": 272,
+    "metric": "mae",
+    "metric_value": 0.2778404147058823,
+    "overall_metric": 0.32754256845930246,
+    "gap": -0.049702153753420186,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q1(0.999\u201318) & AveRooms=Q1(0.845\u20134.4)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q1(0.999\u201318)"
+      ],
+      [
+        "AveRooms",
+        "Q1(0.845\u20134.4)"
+      ]
+    ],
+    "n": 175,
+    "metric": "mae",
+    "metric_value": 0.37310770057142845,
+    "overall_metric": 0.32754256845930246,
+    "gap": 0.04556513211212598,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q2(18\u201329) & AveRooms=Q2(4.4\u20135.19)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q2(18\u201329)"
+      ],
+      [
+        "AveRooms",
+        "Q2(4.4\u20135.19)"
+      ]
+    ],
+    "n": 230,
+    "metric": "mae",
+    "metric_value": 0.28202219434782616,
+    "overall_metric": 0.32754256845930246,
+    "gap": -0.0455203741114763,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q4(37\u201352) & AveRooms=Q3(5.19\u20136.01)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q4(37\u201352)"
+      ],
+      [
+        "AveRooms",
+        "Q3(5.19\u20136.01)"
+      ]
+    ],
+    "n": 235,
+    "metric": "mae",
+    "metric_value": 0.37243752085106385,
+    "overall_metric": 0.32754256845930246,
+    "gap": 0.04489495239176139,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q1(0.999\u201318) & AveRooms=Q2(4.4\u20135.19)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q1(0.999\u201318)"
+      ],
+      [
+        "AveRooms",
+        "Q2(4.4\u20135.19)"
+      ]
+    ],
+    "n": 188,
+    "metric": "mae",
+    "metric_value": 0.2870235223404255,
+    "overall_metric": 0.32754256845930246,
+    "gap": -0.04051904611887697,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q3(29\u201337)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q3(29\u201337)"
+      ]
+    ],
+    "n": 1025,
+    "metric": "mae",
+    "metric_value": 0.28789504126829285,
+    "overall_metric": 0.32754256845930246,
+    "gap": -0.03964752719100961,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q2(18\u201329) & AveRooms=Q1(0.845\u20134.4)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q2(18\u201329)"
+      ],
+      [
+        "AveRooms",
+        "Q1(0.845\u20134.4)"
+      ]
+    ],
+    "n": 280,
+    "metric": "mae",
+    "metric_value": 0.36293774285714286,
+    "overall_metric": 0.32754256845930246,
+    "gap": 0.0353951743978404,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q3(29\u201337) & AveRooms=Q3(5.19\u20136.01)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q3(29\u201337)"
+      ],
+      [
+        "AveRooms",
+        "Q3(5.19\u20136.01)"
+      ]
+    ],
+    "n": 286,
+    "metric": "mae",
+    "metric_value": 0.2935121090909091,
+    "overall_metric": 0.32754256845930246,
+    "gap": -0.034030459368393384,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q2(18\u201329) & AveRooms=Q4(6.01\u2013133)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q2(18\u201329)"
+      ],
+      [
+        "AveRooms",
+        "Q4(6.01\u2013133)"
+      ]
+    ],
+    "n": 300,
+    "metric": "mae",
+    "metric_value": 0.35947536900000066,
+    "overall_metric": 0.32754256845930246,
+    "gap": 0.03193280054069819,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q4(37\u201352) & AveRooms=Q2(4.4\u20135.19)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q4(37\u201352)"
+      ],
+      [
+        "AveRooms",
+        "Q2(4.4\u20135.19)"
+      ]
+    ],
+    "n": 319,
+    "metric": "mae",
+    "metric_value": 0.29799862664576804,
+    "overall_metric": 0.32754256845930246,
+    "gap": -0.029543941813534425,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q4(37\u201352)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q4(37\u201352)"
+      ]
+    ],
+    "n": 1005,
+    "metric": "mae",
+    "metric_value": 0.34622519054726386,
+    "overall_metric": 0.32754256845930246,
+    "gap": 0.018682622087961398,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "AveRooms=Q3(5.19\u20136.01)",
+    "slice_def": [
+      [
+        "AveRooms",
+        "Q3(5.19\u20136.01)"
+      ]
+    ],
+    "n": 1032,
+    "metric": "mae",
+    "metric_value": 0.31441876850775197,
+    "overall_metric": 0.32754256845930246,
+    "gap": -0.013123799951550497,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q1(0.999\u201318)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q1(0.999\u201318)"
+      ]
+    ],
+    "n": 1049,
+    "metric": "mae",
+    "metric_value": 0.34058761649189706,
+    "overall_metric": 0.32754256845930246,
+    "gap": 0.013045048032594597,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q2(18\u201329)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q2(18\u201329)"
+      ]
+    ],
+    "n": 1049,
+    "metric": "mae",
+    "metric_value": 0.33533896959008597,
+    "overall_metric": 0.32754256845930246,
+    "gap": 0.0077964011307835035,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "AveRooms=Q1(0.845\u20134.4)",
+    "slice_def": [
+      [
+        "AveRooms",
+        "Q1(0.845\u20134.4)"
+      ]
+    ],
+    "n": 1032,
+    "metric": "mae",
+    "metric_value": 0.3215443977713178,
+    "overall_metric": 0.32754256845930246,
+    "gap": -0.005998170687984639,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q4(37\u201352) & AveRooms=Q1(0.845\u20134.4)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q4(37\u201352)"
+      ],
+      [
+        "AveRooms",
+        "Q1(0.845\u20134.4)"
+      ]
+    ],
+    "n": 322,
+    "metric": "mae",
+    "metric_value": 0.3226013838509317,
+    "overall_metric": 0.32754256845930246,
+    "gap": -0.0049411846083707855,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  },
+  {
+    "segment": "HouseAge=Q2(18\u201329) & AveRooms=Q3(5.19\u20136.01)",
+    "slice_def": [
+      [
+        "HouseAge",
+        "Q2(18\u201329)"
+      ],
+      [
+        "AveRooms",
+        "Q3(5.19\u20136.01)"
+      ]
+    ],
+    "n": 239,
+    "metric": "mae",
+    "metric_value": 0.3240179736401674,
+    "overall_metric": 0.32754256845930246,
+    "gap": -0.003524594819135085,
+    "is_significant": false,
+    "low_n": false,
+    "p_value": null,
+    "test_used": "bootstrap_ci"
+  }
+]

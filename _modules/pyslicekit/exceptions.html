@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PySliceKit Documentation</title>
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5349f25f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=12dfc556" />
+    <link rel="stylesheet" type="text/css" href="../../_static/dark_theme.css?v=dcc02589" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for pyslicekit.exceptions</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">pyslicekit.exceptions</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="sd">Typed error classes for pyslicekit.</span>
+
+<span class="sd">Every error raised by the library is a subclass of PySliceKitError,</span>
+<span class="sd">so users can catch all library errors with a single except clause</span>
+<span class="sd">while still being able to distinguish specific failure modes.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    from pyslicekit.exceptions import (</span>
+<span class="sd">        PySliceKitError,</span>
+<span class="sd">        PySliceKitValidationError,</span>
+<span class="sd">        PySliceKitNoSegmentsError,</span>
+<span class="sd">        PySliceKitMetricError,</span>
+<span class="sd">        PySliceKitRenderError,</span>
+<span class="sd">    )</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="PySliceKitError">
+<a class="viewcode-back" href="../../api.html#pyslicekit.exceptions.PySliceKitError">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PySliceKitError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for all pyslicekit errors.</span>
+
+<span class="sd">    Catch this to handle any library error generically:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        try:</span>
+<span class="sd">            results = pyslicekit.evaluate(...)</span>
+<span class="sd">        except PySliceKitError as e:</span>
+<span class="sd">            print(f&quot;pyslicekit failed: {e}&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="PySliceKitValidationError">
+<a class="viewcode-back" href="../../api.html#pyslicekit.exceptions.PySliceKitValidationError">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PySliceKitValidationError</span><span class="p">(</span><span class="n">PySliceKitError</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Raised when the inputs to evaluate() fail validation.</span>
+
+<span class="sd">    Common causes:</span>
+<span class="sd">    - y_true and y_pred have different lengths</span>
+<span class="sd">    - slice_cols contains column names not present in df</span>
+<span class="sd">    - metric name is not in SUPPORTED_METRICS</span>
+<span class="sd">    - model has no predict() method</span>
+<span class="sd">    - df is empty</span>
+
+<span class="sd">    The error message always names the specific problem.</span>
+<span class="sd">    </span>
+<span class="sd">    **What triggers this (Example):**</span>
+<span class="sd">    </span>
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        # ❌ WRONG: Passing a metric that doesn&#39;t exist</span>
+<span class="sd">        pyslicekit.evaluate(..., metric=&quot;made_up_metric&quot;)</span>
+<span class="sd">        # Raises: PySliceKitValidationError(&quot;Metric &#39;made_up_metric&#39; is not supported.&quot;)</span>
+
+<span class="sd">        # ❌ WRONG: y_true and y_pred lengths don&#39;t match</span>
+<span class="sd">        pyslicekit.evaluate(..., y_true=[1, 0, 1], y_pred=[1, 0])</span>
+<span class="sd">        # Raises: PySliceKitValidationError(&quot;Length mismatch: y_true has 3, y_pred has 2&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="PySliceKitNoSegmentsError">
+<a class="viewcode-back" href="../../api.html#pyslicekit.exceptions.PySliceKitNoSegmentsError">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PySliceKitNoSegmentsError</span><span class="p">(</span><span class="n">PySliceKitError</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Raised when slicing produces zero usable segments.</span>
+
+<span class="sd">    This happens when every candidate segment has n &lt; min_samples</span>
+<span class="sd">    and there is nothing left to evaluate.</span>
+
+<span class="sd">    Includes a suggestion to lower min_samples or change slice_cols.</span>
+
+<span class="sd">    **What triggers this (Example):**</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        # ❌ WRONG: Setting min_samples too high for a small dataset</span>
+<span class="sd">        # If your df only has 100 rows, and you ask for min_samples=200, </span>
+<span class="sd">        # all segments will be dropped!</span>
+<span class="sd">        pyslicekit.evaluate(..., df=small_df, min_samples=200)</span>
+<span class="sd">        # Raises: PySliceKitNoSegmentsError(&quot;All candidate segments were dropped...&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PySliceKitMetricError</span><span class="p">(</span><span class="n">PySliceKitError</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Raised when metric computation fails for a structural reason.</span>
+
+<span class="sd">    This is distinct from a NaN result (which is handled gracefully</span>
+<span class="sd">    inside SliceResult). This error fires when the metric function</span>
+<span class="sd">    itself raises — e.g. when y_pred contains values outside [0, 1]</span>
+<span class="sd">    for a metric that requires probabilities.</span>
+
+<span class="sd">    Includes the segment label and original exception in the message.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PySliceKitRenderError</span><span class="p">(</span><span class="n">PySliceKitError</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Raised when the renderer fails to produce a figure.</span>
+
+<span class="sd">    Common cause: matplotlib backend not available in the environment</span>
+<span class="sd">    (e.g. headless server with no display). </span>
+<span class="sd">    </span>
+<span class="sd">    **What triggers this (Example):**</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        # ❌ WRONG: Running render_visuals=True on a headless Linux server</span>
+<span class="sd">        pyslicekit.evaluate(..., render_visuals=True)</span>
+<span class="sd">        # Raises: PySliceKitRenderError(&quot;Renderer failed: No display found...&quot;)</span>
+<span class="sd">        </span>
+<span class="sd">        # ✅ FIX: Set render_visuals=False when in a CI pipeline or headless server</span>
+<span class="sd">        pyslicekit.evaluate(..., render_visuals=False)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">PySliceKit</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Anshuman Tiwari.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

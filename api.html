@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>PySliceKit Documentation</title>
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5349f25f" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <link rel="stylesheet" type="text/css" href="_static/dark_theme.css?v=dcc02589" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Frequently Asked Questions (FAQ)" href="faq.html" />
+    <link rel="prev" title="User Guide" href="user_guide.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">¶</a></h1>
+<section id="core-functions">
+<h2>Core Functions<a class="headerlink" href="#core-functions" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslicekit.api.evaluate">
+<span class="sig-prename descclassname"><span class="pre">pyslicekit.api.</span></span><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'accuracy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">render_visuals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">render_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyslicekit.types.SliceResult" title="pyslicekit.types.SliceResult"><span class="pre">SliceResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/pyslicekit/api.html#evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslicekit.api.evaluate" title="Link to this definition">¶</a></dt>
+<dd><p>Evaluate a machine learning model across different slices (subgroups) of your data to discover hidden areas of poor performance.</p>
+<p>This function is the main engine of PySliceKit. It takes your data, automatically chunks it up into subgroups based on the columns you provide, tests your model on those specific groups, and highlights the ones where your model is secretly failing.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyslicekit</span>
+
+<span class="c1"># Find the exact segments where your model underperforms!</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pyslicekit</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">my_model</span><span class="p">,</span>
+    <span class="n">df</span><span class="o">=</span><span class="n">my_dataframe</span><span class="p">,</span>
+    <span class="n">y_true</span><span class="o">=</span><span class="n">y_actuals</span><span class="p">,</span>
+    <span class="n">y_pred</span><span class="o">=</span><span class="n">y_predictions</span><span class="p">,</span>
+    <span class="n">slice_cols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Geography&quot;</span><span class="p">],</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span>
+    <span class="n">depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">render_visuals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">top_n</span><span class="o">=</span><span class="mi">15</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">model</span></code> (Any) – Your trained machine learning model. It just needs a standard <cite>.predict()</cite> method. We never train your model, we only test it!</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df</span></code> (pd.DataFrame) – Your feature dataset. This is the data that contains the columns you want to slice (like Age, Income, City, etc).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y_true</span></code> (array-like) – The actual, correct answers (the ground truth).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y_pred</span></code> (array-like) – The answers your model predicted.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slice_cols</span></code> (List[str]) – A list of column names from your <cite>df</cite> that you want to investigate. E.g., <cite>[“Age”, “Geography”]</cite>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code> (str, optional) – The mathematical way you want to measure success. Examples: “accuracy”, “f1”, “mae”, “rmse”. <code class="docutils literal notranslate"><span class="pre">Default</span> <span class="pre">is</span> <span class="pre">&quot;accuracy&quot;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_samples</span></code> (int, optional) – The minimum number of data points needed in a group for us to trust the math. If a group has fewer people than this, we still show it but flag it with a low-sample warning. <code class="docutils literal notranslate"><span class="pre">Default</span> <span class="pre">is</span> <span class="pre">30</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">depth</span></code> (int, optional) – How deep should we combine columns? <cite>1</cite> means we check Age, then we check Geography. <cite>2</cite> means we cross them and check “Age AND Geography” together. <code class="docutils literal notranslate"><span class="pre">Default</span> <span class="pre">is</span> <span class="pre">2</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">render_visuals</span></code> (bool, optional) – Do you want us to automatically draw the beautiful Heatmap and Bar charts for you? <code class="docutils literal notranslate"><span class="pre">Default</span> <span class="pre">is</span> <span class="pre">True</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**render_kwargs</span></code> (Any) – Extra commands for the chart drawing. For example: <cite>top_n=15</cite> to only show the top 15 worst segments in the bar chart (<code class="docutils literal notranslate"><span class="pre">Default</span> <span class="pre">`top_n`</span> <span class="pre">is</span> <span class="pre">15</span></code>), or <cite>figsize_heatmap=(12, 6)</cite> to change the size of the heatmap figure.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of result objects, one for each segment tested, sorted so the absolute worst performing segments are exactly at the top!</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#pyslicekit.types.SliceResult" title="pyslicekit.types.SliceResult">SliceResult</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyslicekit.types.</span></span><span class="sig-name descname"><span class="pre">SliceResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">slice_def:</span> <span class="pre">~typing.List[~typing.Tuple[str,</span> <span class="pre">~typing.Any]],</span> <span class="pre">n:</span> <span class="pre">int,</span> <span class="pre">metric_name:</span> <span class="pre">str,</span> <span class="pre">metric_value:</span> <span class="pre">float,</span> <span class="pre">overall_metric:</span> <span class="pre">float,</span> <span class="pre">gap:</span> <span class="pre">float,</span> <span class="pre">is_significant:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">low_n:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">p_value:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">test_used:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">extra:</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyslicekit/types.html#SliceResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslicekit.types.SliceResult" title="Link to this definition">¶</a></dt>
+<dd><p>Holds the evaluation result for a single data segment.</p>
+<p>A segment is defined by one or more (column, value) pairs.
+For example: [(“gender”, “female”), (“region”, “north”)]</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.slice_def">
+<span class="sig-name descname"><span class="pre">slice_def</span></span><a class="headerlink" href="#pyslicekit.types.SliceResult.slice_def" title="Link to this definition">¶</a></dt>
+<dd><p>The column-value pairs that define this segment.
+Single-column slice: [(“gender”, “female”)]
+Two-column slice:   [(“gender”, “female”), (“age_bin”, “Q1”)]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of (column, value) tuples</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.n">
+<span class="sig-name descname"><span class="pre">n</span></span><a class="headerlink" href="#pyslicekit.types.SliceResult.n" title="Link to this definition">¶</a></dt>
+<dd><p>Number of rows in this segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.metric_name">
+<span class="sig-name descname"><span class="pre">metric_name</span></span><a class="headerlink" href="#pyslicekit.types.SliceResult.metric_name" title="Link to this definition">¶</a></dt>
+<dd><p>The metric computed (e.g. “accuracy”, “mae”).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.metric_value">
+<span class="sig-name descname"><span class="pre">metric_value</span></span><a class="headerlink" href="#pyslicekit.types.SliceResult.metric_value" title="Link to this definition">¶</a></dt>
+<dd><p>The metric value for this segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.overall_metric">
+<span class="sig-name descname"><span class="pre">overall_metric</span></span><a class="headerlink" href="#pyslicekit.types.SliceResult.overall_metric" title="Link to this definition">¶</a></dt>
+<dd><p>The metric value across the full test set (baseline).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.gap">
+<span class="sig-name descname"><span class="pre">gap</span></span><a class="headerlink" href="#pyslicekit.types.SliceResult.gap" title="Link to this definition">¶</a></dt>
+<dd><p>metric_value - overall_metric.
+Sign interpretation depends on MetricDirection:</p>
+<ul class="simple">
+<li><p>HIGHER_IS_BETTER → negative gap = segment underperforms</p></li>
+<li><p>LOWER_IS_BETTER  → positive gap = segment underperforms</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.is_significant">
+<span class="sig-name descname"><span class="pre">is_significant</span></span><a class="headerlink" href="#pyslicekit.types.SliceResult.is_significant" title="Link to this definition">¶</a></dt>
+<dd><p>True if the gap is statistically significant (p &lt; 0.05).
+Set to False when n &lt; 30 (test unreliable at small n).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.low_n">
+<span class="sig-name descname"><span class="pre">low_n</span></span><a class="headerlink" href="#pyslicekit.types.SliceResult.low_n" title="Link to this definition">¶</a></dt>
+<dd><p>True when n &lt; min_samples. Result is included but flagged.
+Renderer displays a warning overlay on these cells.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.p_value">
+<span class="sig-name descname"><span class="pre">p_value</span></span><a class="headerlink" href="#pyslicekit.types.SliceResult.p_value" title="Link to this definition">¶</a></dt>
+<dd><p>The p-value from the significance test.
+None when the test could not be run (e.g. n=0, all same label).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.test_used">
+<span class="sig-name descname"><span class="pre">test_used</span></span><a class="headerlink" href="#pyslicekit.types.SliceResult.test_used" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the statistical test applied:
+“proportion_z”, “fisher_exact”, “bootstrap_ci”, or None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.extra">
+<span class="sig-name descname"><span class="pre">extra</span></span><a class="headerlink" href="#pyslicekit.types.SliceResult.extra" title="Link to this definition">¶</a></dt>
+<dd><p>Reserved for future use (confidence intervals, etc.).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.abs_gap">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">abs_gap</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#pyslicekit.types.SliceResult.abs_gap" title="Link to this definition">¶</a></dt>
+<dd><p>Absolute gap — used for sort ordering.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.direction">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">direction</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MetricDirection</span></em><a class="headerlink" href="#pyslicekit.types.SliceResult.direction" title="Link to this definition">¶</a></dt>
+<dd><p>Looks up the metric direction from the registry.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">extra</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">gap</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">is_significant</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.is_underperforming">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_underperforming</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#pyslicekit.types.SliceResult.is_underperforming" title="Link to this definition">¶</a></dt>
+<dd><p>True when the segment genuinely performs worse than baseline,
+taking metric direction into account.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyslicekit.types.SliceResult.label">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#pyslicekit.types.SliceResult.label" title="Link to this definition">¶</a></dt>
+<dd><p>Human-readable segment label, e.g. ‘gender=female &amp; age_bin=Q1’.
+Used by the renderer for axis labels and CSV column headers.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">low_n</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">metric_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">metric_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">n</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">overall_metric</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">p_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">slice_def</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">test_used</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id10" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="exporters">
+<h2>Exporters<a class="headerlink" href="#exporters" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslicekit.exporter.to_csv">
+<span class="sig-prename descclassname"><span class="pre">pyslicekit.exporter.</span></span><span class="sig-name descname"><span class="pre">to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyslicekit.types.SliceResult" title="pyslicekit.types.SliceResult"><span class="pre">SliceResult</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/pyslicekit/exporter.html#to_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslicekit.exporter.to_csv" title="Link to this definition">¶</a></dt>
+<dd><p>Export your entire slice evaluation into a clean, easy-to-read CSV file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyslicekit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyslicekit.exporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_csv</span><span class="p">,</span> <span class="n">to_json</span>
+
+<span class="c1"># Save your findings to show your manager or colleagues</span>
+<span class="n">to_csv</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">&quot;audit_results.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">results</span></code> (List[SliceResult]) – The exact list of results that the <cite>evaluate()</cite> function gave you.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filepath</span></code> (str) – Where do you want to save the file? (e.g. “my_results.csv”)</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslicekit.exporter.to_json">
+<span class="sig-prename descclassname"><span class="pre">pyslicekit.exporter.</span></span><span class="sig-name descname"><span class="pre">to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyslicekit.types.SliceResult" title="pyslicekit.types.SliceResult"><span class="pre">SliceResult</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/pyslicekit/exporter.html#to_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslicekit.exporter.to_json" title="Link to this definition">¶</a></dt>
+<dd><p>Export your slice evaluation into a structured JSON file.</p>
+<p>This is perfect if you want to take the results and feed them into a web dashboard or another automated system.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyslicekit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyslicekit.exporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_csv</span><span class="p">,</span> <span class="n">to_json</span>
+
+<span class="c1"># Save as JSON for your web app</span>
+<span class="n">to_json</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">&quot;audit_results.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">results</span></code> (List[SliceResult]) – The exact list of results that the <cite>evaluate()</cite> function gave you.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filepath</span></code> (str) – Where do you want to save the file? (e.g. “my_results.json”)</p></li>
+</ul>
+</dd></dl>
+
+</section>
+<section id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading">¶</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyslicekit.exceptions.PySliceKitError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyslicekit.exceptions.</span></span><span class="sig-name descname"><span class="pre">PySliceKitError</span></span><a class="reference internal" href="_modules/pyslicekit/exceptions.html#PySliceKitError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslicekit.exceptions.PySliceKitError" title="Link to this definition">¶</a></dt>
+<dd><p>Base class for all pyslicekit errors.</p>
+<p>Catch this to handle any library error generically:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">pyslicekit</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">PySliceKitError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pyslicekit failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyslicekit.exceptions.PySliceKitValidationError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyslicekit.exceptions.</span></span><span class="sig-name descname"><span class="pre">PySliceKitValidationError</span></span><a class="reference internal" href="_modules/pyslicekit/exceptions.html#PySliceKitValidationError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslicekit.exceptions.PySliceKitValidationError" title="Link to this definition">¶</a></dt>
+<dd><p>Raised when the inputs to evaluate() fail validation.</p>
+<p>Common causes:
+- y_true and y_pred have different lengths
+- slice_cols contains column names not present in df
+- metric name is not in SUPPORTED_METRICS
+- model has no predict() method
+- df is empty</p>
+<p>The error message always names the specific problem.</p>
+<p><strong>What triggers this (Example):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ WRONG: Passing a metric that doesn&#39;t exist</span>
+<span class="n">pyslicekit</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;made_up_metric&quot;</span><span class="p">)</span>
+<span class="c1"># Raises: PySliceKitValidationError(&quot;Metric &#39;made_up_metric&#39; is not supported.&quot;)</span>
+
+<span class="c1"># ❌ WRONG: y_true and y_pred lengths don&#39;t match</span>
+<span class="n">pyslicekit</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">y_true</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">y_pred</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="c1"># Raises: PySliceKitValidationError(&quot;Length mismatch: y_true has 3, y_pred has 2&quot;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyslicekit.exceptions.PySliceKitNoSegmentsError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyslicekit.exceptions.</span></span><span class="sig-name descname"><span class="pre">PySliceKitNoSegmentsError</span></span><a class="reference internal" href="_modules/pyslicekit/exceptions.html#PySliceKitNoSegmentsError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslicekit.exceptions.PySliceKitNoSegmentsError" title="Link to this definition">¶</a></dt>
+<dd><p>Raised when slicing produces zero usable segments.</p>
+<p>This happens when every candidate segment has n &lt; min_samples
+and there is nothing left to evaluate.</p>
+<p>Includes a suggestion to lower min_samples or change slice_cols.</p>
+<p><strong>What triggers this (Example):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ WRONG: Setting min_samples too high for a small dataset</span>
+<span class="c1"># If your df only has 100 rows, and you ask for min_samples=200,</span>
+<span class="c1"># all segments will be dropped!</span>
+<span class="n">pyslicekit</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">small_df</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="c1"># Raises: PySliceKitNoSegmentsError(&quot;All candidate segments were dropped...&quot;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">PySliceKit</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#core-functions">Core Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-types">Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exporters">Exporters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exceptions">Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="user_guide.html" title="previous chapter">User Guide</a></li>
+      <li>Next: <a href="faq.html" title="next chapter">Frequently Asked Questions (FAQ)</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Anshuman Tiwari.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>PySliceKit Documentation</title>
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5349f25f" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <link rel="stylesheet" type="text/css" href="_static/dark_theme.css?v=dcc02589" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="prev" title="API Reference" href="api.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="frequently-asked-questions-faq">
+<h1>Frequently Asked Questions (FAQ)<a class="headerlink" href="#frequently-asked-questions-faq" title="Link to this heading">¶</a></h1>
+<section id="what-is-pyslicekit">
+<h2>1. What is PySliceKit?<a class="headerlink" href="#what-is-pyslicekit" title="Link to this heading">¶</a></h2>
+<p>PySliceKit is a Python library designed to automatically identify, quantify, and visualize the hidden subgroups in your dataset where your machine learning model is underperforming.</p>
+</section>
+<section id="why-shouldn-t-i-just-use-shap-or-lime">
+<h2>2. Why shouldn’t I just use SHAP or LIME?<a class="headerlink" href="#why-shouldn-t-i-just-use-shap-or-lime" title="Link to this heading">¶</a></h2>
+<p>SHAP and LIME provide <strong>feature importance</strong> (why a model made a specific prediction). PySliceKit provides <strong>cohort performance profiling</strong> (where the model is failing in aggregate). They are complementary tools: use PySliceKit to find the failing cohort, and SHAP to understand why it failed.</p>
+</section>
+<section id="do-i-need-to-re-train-my-model">
+<h2>3. Do I need to re-train my model?<a class="headerlink" href="#do-i-need-to-re-train-my-model" title="Link to this heading">¶</a></h2>
+<p>No! PySliceKit is completely model-agnostic. It only requires your trained model’s <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> output and the raw features.</p>
+</section>
+<section id="what-metrics-are-supported">
+<h2>4. What metrics are supported?<a class="headerlink" href="#what-metrics-are-supported" title="Link to this heading">¶</a></h2>
+<p>For classification: <code class="docutils literal notranslate"><span class="pre">accuracy</span></code>, <code class="docutils literal notranslate"><span class="pre">f1</span></code>, <code class="docutils literal notranslate"><span class="pre">precision</span></code>, <code class="docutils literal notranslate"><span class="pre">recall</span></code>. For regression: <code class="docutils literal notranslate"><span class="pre">mae</span></code>, <code class="docutils literal notranslate"><span class="pre">rmse</span></code>, <code class="docutils literal notranslate"><span class="pre">mse</span></code>, <code class="docutils literal notranslate"><span class="pre">r2</span></code>.</p>
+</section>
+<section id="how-does-pyslicekit-know-if-a-drop-in-performance-is-real">
+<h2>5. How does PySliceKit know if a drop in performance is “real”?<a class="headerlink" href="#how-does-pyslicekit-know-if-a-drop-in-performance-is-real" title="Link to this heading">¶</a></h2>
+<p>It automatically applies statistical significance testing (Z-Tests for proportions, Bootstrap CI for continuous metrics) to differentiate true failures from random noise.</p>
+</section>
+<section id="what-does-the-depth-parameter-do">
+<h2>6. What does the <cite>depth</cite> parameter do?<a class="headerlink" href="#what-does-the-depth-parameter-do" title="Link to this heading">¶</a></h2>
+<p>Depth determines how many columns are combined to form a segment. Depth 1 checks single columns (<code class="docutils literal notranslate"><span class="pre">Age</span></code>, <code class="docutils literal notranslate"><span class="pre">Gender</span></code>). Depth 2 checks pairwise intersections (<code class="docutils literal notranslate"><span class="pre">Age</span> <span class="pre">AND</span> <span class="pre">Gender</span></code>).</p>
+</section>
+<section id="my-dataset-is-massive-will-depth-3-be-too-slow">
+<h2>7. My dataset is massive, will depth=3 be too slow?<a class="headerlink" href="#my-dataset-is-massive-will-depth-3-be-too-slow" title="Link to this heading">¶</a></h2>
+<p>Yes, high depth on datasets with many categorical unique values creates a combinatorial explosion. Stick to depth 1 or 2 for wide datasets, or explicitly limit the <code class="docutils literal notranslate"><span class="pre">slice_cols</span></code> parameter.</p>
+</section>
+<section id="can-i-pass-pytorch-or-tensorflow-models">
+<h2>8. Can I pass PyTorch or TensorFlow models?<a class="headerlink" href="#can-i-pass-pytorch-or-tensorflow-models" title="Link to this heading">¶</a></h2>
+<p>Yes, as long as you wrap the model so that <code class="docutils literal notranslate"><span class="pre">model.predict(X)</span></code> returns a flat numpy array of predictions.</p>
+</section>
+<section id="why-are-some-bars-in-the-bar-chart-faded">
+<h2>9. Why are some bars in the bar chart faded?<a class="headerlink" href="#why-are-some-bars-in-the-bar-chart-faded" title="Link to this heading">¶</a></h2>
+<p>Faded bars represent segments where the model performs worse than average, but the difference is NOT statistically significant (p &gt;= 0.05). Solid red bars are statistically significant failures.</p>
+</section>
+<section id="what-does-the-warning-icon-mean-in-the-heatmap">
+<h2>10. What does the warning icon mean in the heatmap?<a class="headerlink" href="#what-does-the-warning-icon-mean-in-the-heatmap" title="Link to this heading">¶</a></h2>
+<p>The warning icon (or <code class="docutils literal notranslate"><span class="pre">[low-n]</span></code> tag) indicates that a specific segment contains fewer samples than your <code class="docutils literal notranslate"><span class="pre">min_samples</span></code> threshold (default 30). The math is less reliable for tiny cohorts.</p>
+</section>
+<section id="why-does-the-renderer-enforce-red-means-bad">
+<h2>11. Why does the renderer enforce “Red means bad”?<a class="headerlink" href="#why-does-the-renderer-enforce-red-means-bad" title="Link to this heading">¶</a></h2>
+<p>To reduce cognitive load. A drop in accuracy is bad (negative gap), but a drop in RMSE is good (positive gap). The renderer automatically aligns the colors so red <em>always</em> indicates a negative outcome for the user.</p>
+</section>
+<section id="can-i-export-the-raw-data-instead-of-visualizations">
+<h2>12. Can I export the raw data instead of visualizations?<a class="headerlink" href="#can-i-export-the-raw-data-instead-of-visualizations" title="Link to this heading">¶</a></h2>
+<p>Yes! The <code class="docutils literal notranslate"><span class="pre">pyslicekit.evaluate()</span></code> function returns a list of <code class="docutils literal notranslate"><span class="pre">SliceResult</span></code> objects. You can also use <code class="docutils literal notranslate"><span class="pre">pyslicekit.to_csv()</span></code> and <code class="docutils literal notranslate"><span class="pre">pyslicekit.to_json()</span></code>.</p>
+</section>
+<section id="does-pyslicekit-automatically-bin-continuous-columns">
+<h2>13. Does PySliceKit automatically bin continuous columns?<a class="headerlink" href="#does-pyslicekit-automatically-bin-continuous-columns" title="Link to this heading">¶</a></h2>
+<p>Yes. If you pass a continuous numeric column (like Income or Age), PySliceKit will automatically bin it into quartiles (Q1, Q2, Q3, Q4) to evaluate the cohorts.</p>
+</section>
+<section id="how-can-i-change-the-chart-colors">
+<h2>14. How can I change the chart colors?<a class="headerlink" href="#how-can-i-change-the-chart-colors" title="Link to this heading">¶</a></h2>
+<p>Currently, PySliceKit uses a fixed, color-blind friendly palette tailored for dark themes. Future releases will allow passing custom matplotlib <code class="docutils literal notranslate"><span class="pre">cmap</span></code> objects.</p>
+</section>
+<section id="does-it-support-multi-class-classification">
+<h2>15. Does it support multi-class classification?<a class="headerlink" href="#does-it-support-multi-class-classification" title="Link to this heading">¶</a></h2>
+<p>Currently, the built-in metrics are heavily optimized for binary classification and regression. For multi-class, you should binarize your labels (One-vs-Rest) before passing them in.</p>
+</section>
+<section id="what-happens-if-i-pass-highly-correlated-columns">
+<h2>16. What happens if I pass highly correlated columns?<a class="headerlink" href="#what-happens-if-i-pass-highly-correlated-columns" title="Link to this heading">¶</a></h2>
+<p>PySliceKit treats them independently when evaluating slices. If <code class="docutils literal notranslate"><span class="pre">Age</span></code> and <code class="docutils literal notranslate"><span class="pre">Tenure</span></code> are highly correlated, you will likely see identical performance drops flagged for both.</p>
+</section>
+<section id="can-i-integrate-pyslicekit-into-my-ci-cd-pipeline">
+<h2>17. Can I integrate PySliceKit into my CI/CD pipeline?<a class="headerlink" href="#can-i-integrate-pyslicekit-into-my-ci-cd-pipeline" title="Link to this heading">¶</a></h2>
+<p>Absolutely. Since you can run it purely in code (by setting <code class="docutils literal notranslate"><span class="pre">render_visuals=False</span></code>), you can write a script that asserts no cohort drops below a specific F1-score threshold before allowing a model deployment.</p>
+</section>
+<section id="what-is-the-difference-between-metric-value-and-overall-metric">
+<h2>18. What is the difference between <cite>metric_value</cite> and <cite>overall_metric</cite>?<a class="headerlink" href="#what-is-the-difference-between-metric-value-and-overall-metric" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">overall_metric</span></code> is the performance of your model on the <em>entire</em> dataset you provided. <code class="docutils literal notranslate"><span class="pre">metric_value</span></code> is the performance on the <em>specific</em> slice being evaluated. The <code class="docutils literal notranslate"><span class="pre">gap</span></code> is the difference between them.</p>
+</section>
+<section id="how-do-i-handle-missing-data-nans-in-my-slice-columns">
+<h2>19. How do I handle missing data (NaNs) in my slice columns?<a class="headerlink" href="#how-do-i-handle-missing-data-nans-in-my-slice-columns" title="Link to this heading">¶</a></h2>
+<p>You should impute or drop NaNs in your <code class="docutils literal notranslate"><span class="pre">df</span></code> before passing it to <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code>. PySliceKit does not currently process or slice explicitly on <code class="docutils literal notranslate"><span class="pre">NaN</span></code> as a distinct category.</p>
+</section>
+<section id="is-pyslicekit-free-for-commercial-use">
+<h2>20. Is PySliceKit free for commercial use?<a class="headerlink" href="#is-pyslicekit-free-for-commercial-use" title="Link to this heading">¶</a></h2>
+<p>Yes! PySliceKit is distributed under the open-source MIT License.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">PySliceKit</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently Asked Questions (FAQ)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-pyslicekit">1. What is PySliceKit?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-shouldn-t-i-just-use-shap-or-lime">2. Why shouldn’t I just use SHAP or LIME?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#do-i-need-to-re-train-my-model">3. Do I need to re-train my model?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-metrics-are-supported">4. What metrics are supported?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-does-pyslicekit-know-if-a-drop-in-performance-is-real">5. How does PySliceKit know if a drop in performance is “real”?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-does-the-depth-parameter-do">6. What does the <cite>depth</cite> parameter do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#my-dataset-is-massive-will-depth-3-be-too-slow">7. My dataset is massive, will depth=3 be too slow?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-i-pass-pytorch-or-tensorflow-models">8. Can I pass PyTorch or TensorFlow models?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-are-some-bars-in-the-bar-chart-faded">9. Why are some bars in the bar chart faded?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-does-the-warning-icon-mean-in-the-heatmap">10. What does the warning icon mean in the heatmap?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-does-the-renderer-enforce-red-means-bad">11. Why does the renderer enforce “Red means bad”?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-i-export-the-raw-data-instead-of-visualizations">12. Can I export the raw data instead of visualizations?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#does-pyslicekit-automatically-bin-continuous-columns">13. Does PySliceKit automatically bin continuous columns?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-change-the-chart-colors">14. How can I change the chart colors?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#does-it-support-multi-class-classification">15. Does it support multi-class classification?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-happens-if-i-pass-highly-correlated-columns">16. What happens if I pass highly correlated columns?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-i-integrate-pyslicekit-into-my-ci-cd-pipeline">17. Can I integrate PySliceKit into my CI/CD pipeline?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-difference-between-metric-value-and-overall-metric">18. What is the difference between <cite>metric_value</cite> and <cite>overall_metric</cite>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-handle-missing-data-nans-in-my-slice-columns">19. How do I handle missing data (NaNs) in my slice columns?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#is-pyslicekit-free-for-commercial-use">20. Is PySliceKit free for commercial use?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="api.html" title="previous chapter">API Reference</a></li>
+      <li>Next: <a href="changelog.html" title="next chapter">Changelog</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Anshuman Tiwari.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/faq.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

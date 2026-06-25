@@ -1,0 +1,69 @@
+/* Custom Dark Theme for Alabaster */
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+a {
+    color: #5ab0f7;
+}
+div.document, div.sphinxsidebar {
+    background-color: #1a1a1a;
+}
+div.sphinxsidebar h3, div.sphinxsidebar h4 {
+    color: #ffffff;
+}
+div.sphinxsidebar input {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+}
+div.body {
+    background-color: #242424;
+    color: #e0e0e0;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+    border-bottom: 1px solid #444 !important;
+}
+pre {
+    background-color: #2d2d2d;
+    color: #d4d4d4;
+    border: 1px solid #444;
+}
+code {
+    background-color: #333;
+    color: #ff9d00;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+table.docutils {
+    background-color: #242424;
+    color: #e0e0e0;
+}
+th, td {
+    border-color: #444 !important;
+}
+div.admonition {
+    background-color: #2d2d2d;
+    border: 1px solid #555;
+    color: #e0e0e0;
+}
+div.admonition p.admonition-title {
+    background-color: #444;
+    color: #ffffff;
+}
+/* Ensure the sidebar text is readable */
+div.sphinxsidebar a {
+    color: #aaaaaa;
+}
+div.sphinxsidebar a:hover {
+    color: #ffffff;
+}
+/* Selection and Target highlighting */
+::selection {
+    background-color: #5ab0f7;
+    color: #1a1a1a;
+}
+:target {
+    background-color: #333300 !important;
+}
