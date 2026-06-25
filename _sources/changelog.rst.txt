@@ -3,6 +3,11 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+[v0.1.1] - Metadata Hotfix
+--------------------------
+* Updated PyPI description metadata to render absolute image URLs.
+* Added "Quick Links" section to README for better repository navigation.
+
 [v0.1.0] - Initial Release
 --------------------------
 
