@@ -7,7 +7,7 @@
 
   <title>PySliceKit Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5349f25f" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=0fc419ee" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
     <link rel="stylesheet" type="text/css" href="_static/dark_theme.css?v=dcc02589" />
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
@@ -189,7 +189,7 @@ Is the task regression (mae, rmse, mse, r2)?
 Is n &gt;= 30?
 └── Yes → Two-Proportion Z-Test
 Is n &lt; 30?
-└── Yes → Fisher&#39;s Exact Test
+└── Yes → Fisher's Exact Test
 </pre></div>
 </div>
 <p>A segment marked with <code class="docutils literal notranslate"><span class="pre">*</span></code> passed its test at p &lt; 0.05. A segment with no
@@ -323,8 +323,8 @@ California Housing dataset and evaluate it with MAE.</p>
 <span class="c1"># Load data</span>
 <span class="n">cali</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">cali</span><span class="o">.</span><span class="n">frame</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'MedHouseVal'</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'MedHouseVal'</span><span class="p">]</span>
 
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
     <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
@@ -341,8 +341,8 @@ California Housing dataset and evaluate it with MAE.</p>
     <span class="n">df</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span>
     <span class="n">y_true</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span>
     <span class="n">y_pred</span><span class="o">=</span><span class="n">y_pred</span><span class="p">,</span>
-    <span class="n">slice_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;HouseAge&#39;</span><span class="p">,</span> <span class="s1">&#39;AveRooms&#39;</span><span class="p">],</span>
-    <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;mae&#39;</span><span class="p">,</span>
+    <span class="n">slice_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">'HouseAge'</span><span class="p">,</span> <span class="s1">'AveRooms'</span><span class="p">],</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s1">'mae'</span><span class="p">,</span>
     <span class="n">min_samples</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">depth</span><span class="o">=</span><span class="mi">2</span>
 <span class="p">)</span>
@@ -380,9 +380,9 @@ dimension — the model systematically struggles more on high-room properties.</
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyslicekit</span>
 
 <span class="c1"># Save for stakeholder review</span>
-<span class="n">pyslicekit</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">&quot;california_housing_audit.csv&quot;</span><span class="p">)</span>
-<span class="n">pyslicekit</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">&quot;california_housing_audit.json&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exported to CSV and JSON successfully!&quot;</span><span class="p">)</span>
+<span class="n">pyslicekit</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">"california_housing_audit.csv"</span><span class="p">)</span>
+<span class="n">pyslicekit</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">"california_housing_audit.json"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Exported to CSV and JSON successfully!"</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -398,8 +398,8 @@ using F1 score as the metric.</p>
 
 <span class="n">cancer</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">df_c</span> <span class="o">=</span> <span class="n">cancer</span><span class="o">.</span><span class="n">frame</span>
-<span class="n">X_c</span> <span class="o">=</span> <span class="n">df_c</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">])</span>
-<span class="n">y_c</span> <span class="o">=</span> <span class="n">df_c</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
+<span class="n">X_c</span> <span class="o">=</span> <span class="n">df_c</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'target'</span><span class="p">])</span>
+<span class="n">y_c</span> <span class="o">=</span> <span class="n">df_c</span><span class="p">[</span><span class="s1">'target'</span><span class="p">]</span>
 
 <span class="n">X_train_c</span><span class="p">,</span> <span class="n">X_test_c</span><span class="p">,</span> <span class="n">y_train_c</span><span class="p">,</span> <span class="n">y_test_c</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
     <span class="n">X_c</span><span class="p">,</span> <span class="n">y_c</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
@@ -415,8 +415,8 @@ using F1 score as the metric.</p>
     <span class="n">df</span><span class="o">=</span><span class="n">X_test_c</span><span class="p">,</span>
     <span class="n">y_true</span><span class="o">=</span><span class="n">y_test_c</span><span class="p">,</span>
     <span class="n">y_pred</span><span class="o">=</span><span class="n">y_pred_c</span><span class="p">,</span>
-    <span class="n">slice_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mean radius&#39;</span><span class="p">,</span> <span class="s1">&#39;mean texture&#39;</span><span class="p">],</span>
-    <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;f1&#39;</span><span class="p">,</span>
+    <span class="n">slice_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">'mean radius'</span><span class="p">,</span> <span class="s1">'mean texture'</span><span class="p">],</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s1">'f1'</span><span class="p">,</span>
     <span class="n">min_samples</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">depth</span><span class="o">=</span><span class="mi">2</span>
 <span class="p">)</span>
@@ -456,16 +456,16 @@ absolute gap. Every field on <code class="docutils literal notranslate"><span cl
 <span class="c1"># The worst-performing segment</span>
 <span class="n">worst</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">worst</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>          <span class="c1"># &quot;mean radius=Q3(13.5–15.9)&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">worst</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>          <span class="c1"># "mean radius=Q3(13.5–15.9)"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">worst</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>              <span class="c1"># 35</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">worst</span><span class="o">.</span><span class="n">metric_value</span><span class="p">)</span>   <span class="c1"># 0.8952...</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">worst</span><span class="o">.</span><span class="n">overall_metric</span><span class="p">)</span> <span class="c1"># 0.972...</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">worst</span><span class="o">.</span><span class="n">gap</span><span class="p">)</span>            <span class="c1"># -0.0768...</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">worst</span><span class="o">.</span><span class="n">is_significant</span><span class="p">)</span> <span class="c1"># True</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">worst</span><span class="o">.</span><span class="n">p_value</span><span class="p">)</span>        <span class="c1"># 0.0083...</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">worst</span><span class="o">.</span><span class="n">test_used</span><span class="p">)</span>      <span class="c1"># &quot;proportion_z&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">worst</span><span class="o">.</span><span class="n">test_used</span><span class="p">)</span>      <span class="c1"># "proportion_z"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">worst</span><span class="o">.</span><span class="n">low_n</span><span class="p">)</span>          <span class="c1"># False</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">worst</span><span class="o">.</span><span class="n">slice_def</span><span class="p">)</span>      <span class="c1"># [(&quot;mean radius&quot;, &quot;Q3(13.5–15.9)&quot;)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">worst</span><span class="o">.</span><span class="n">slice_def</span><span class="p">)</span>      <span class="c1"># [("mean radius", "Q3(13.5–15.9)")]</span>
 
 <span class="c1"># Filter to only statistically significant underperformers</span>
 <span class="n">flagged</span> <span class="o">=</span> <span class="p">[</span>
@@ -529,11 +529,11 @@ calling <code class="docutils literal notranslate"><span class="pre">pyslicekit.
     <span class="n">df</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span>
     <span class="n">y_true</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span>
     <span class="n">y_pred</span><span class="o">=</span><span class="n">y_pred</span><span class="p">,</span>
-    <span class="n">slice_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Geography&#39;</span><span class="p">],</span>
-    <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span>
+    <span class="n">slice_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">'Age'</span><span class="p">,</span> <span class="s1">'Geography'</span><span class="p">],</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">,</span>
     <span class="n">render_visuals</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">pyslicekit</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">&quot;pipeline_output.json&quot;</span><span class="p">)</span>
+<span class="n">pyslicekit</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">"pipeline_output.json"</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -552,8 +552,8 @@ run, but you will get many segments (one per unique value), most of which will
 be low-n. Consider grouping the column into coarser buckets before passing it
 to <code class="docutils literal notranslate"><span class="pre">pyslicekit.evaluate()</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instead of raw city (500 unique values), group into regions first</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">city_to_region_dict</span><span class="p">)</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">pyslicekit</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">slice_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="s1">&#39;age_group&#39;</span><span class="p">],</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'region'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'city'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">city_to_region_dict</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pyslicekit</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">slice_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">'region'</span><span class="p">,</span> <span class="s1">'age_group'</span><span class="p">],</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>“The heatmap is blank / shows a placeholder message”</strong></p>
@@ -579,8 +579,8 @@ rather than raising. The cell appears light grey (“no data”) in the heatmap.
 <p>Both exporters write every field of <code class="docutils literal notranslate"><span class="pre">SliceResult</span></code> to disk.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyslicekit</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyslicekit.exporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_csv</span><span class="p">,</span> <span class="n">to_json</span>
-<span class="n">pyslicekit</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">&quot;audit.csv&quot;</span><span class="p">)</span>
-<span class="n">pyslicekit</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">&quot;audit.json&quot;</span><span class="p">)</span>
+<span class="n">pyslicekit</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">"audit.csv"</span><span class="p">)</span>
+<span class="n">pyslicekit</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">"audit.json"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The CSV columns are: <code class="docutils literal notranslate"><span class="pre">segment</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">metric_value</span></code>,

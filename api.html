@@ -7,7 +7,7 @@
 
   <title>PySliceKit Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5349f25f" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=0fc419ee" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
     <link rel="stylesheet" type="text/css" href="_static/dark_theme.css?v=dcc02589" />
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
@@ -51,8 +51,8 @@
     <span class="n">df</span><span class="o">=</span><span class="n">my_dataframe</span><span class="p">,</span>
     <span class="n">y_true</span><span class="o">=</span><span class="n">y_actuals</span><span class="p">,</span>
     <span class="n">y_pred</span><span class="o">=</span><span class="n">y_predictions</span><span class="p">,</span>
-    <span class="n">slice_cols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Geography&quot;</span><span class="p">],</span>
-    <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span>
+    <span class="n">slice_cols</span><span class="o">=</span><span class="p">[</span><span class="s2">"Age"</span><span class="p">,</span> <span class="s2">"Geography"</span><span class="p">],</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s2">"accuracy"</span><span class="p">,</span>
     <span class="n">depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
     <span class="n">render_visuals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">top_n</span><span class="o">=</span><span class="mi">15</span>
@@ -317,7 +317,7 @@ Used by the renderer for axis labels and CSV column headers.</p>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyslicekit.exporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_csv</span><span class="p">,</span> <span class="n">to_json</span>
 
 <span class="c1"># Save your findings to show your manager or colleagues</span>
-<span class="n">to_csv</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">&quot;audit_results.csv&quot;</span><span class="p">)</span>
+<span class="n">to_csv</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">"audit_results.csv"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Parameters:</strong></p>
@@ -336,7 +336,7 @@ Used by the renderer for axis labels and CSV column headers.</p>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyslicekit.exporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_csv</span><span class="p">,</span> <span class="n">to_json</span>
 
 <span class="c1"># Save as JSON for your web app</span>
-<span class="n">to_json</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">&quot;audit_results.json&quot;</span><span class="p">)</span>
+<span class="n">to_json</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">"audit_results.json"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Parameters:</strong></p>
@@ -357,7 +357,7 @@ Used by the renderer for axis labels and CSV column headers.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">results</span> <span class="o">=</span> <span class="n">pyslicekit</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 <span class="k">except</span> <span class="n">PySliceKitError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pyslicekit failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"pyslicekit failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -374,13 +374,13 @@ Used by the renderer for axis labels and CSV column headers.</p>
 - df is empty</p>
 <p>The error message always names the specific problem.</p>
 <p><strong>What triggers this (Example):</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ WRONG: Passing a metric that doesn&#39;t exist</span>
-<span class="n">pyslicekit</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;made_up_metric&quot;</span><span class="p">)</span>
-<span class="c1"># Raises: PySliceKitValidationError(&quot;Metric &#39;made_up_metric&#39; is not supported.&quot;)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ WRONG: Passing a metric that doesn't exist</span>
+<span class="n">pyslicekit</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">"made_up_metric"</span><span class="p">)</span>
+<span class="c1"># Raises: PySliceKitValidationError("Metric 'made_up_metric' is not supported.")</span>
 
-<span class="c1"># ❌ WRONG: y_true and y_pred lengths don&#39;t match</span>
+<span class="c1"># ❌ WRONG: y_true and y_pred lengths don't match</span>
 <span class="n">pyslicekit</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">y_true</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">y_pred</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="c1"># Raises: PySliceKitValidationError(&quot;Length mismatch: y_true has 3, y_pred has 2&quot;)</span>
+<span class="c1"># Raises: PySliceKitValidationError("Length mismatch: y_true has 3, y_pred has 2")</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -397,7 +397,7 @@ and there is nothing left to evaluate.</p>
 <span class="c1"># If your df only has 100 rows, and you ask for min_samples=200,</span>
 <span class="c1"># all segments will be dropped!</span>
 <span class="n">pyslicekit</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">small_df</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-<span class="c1"># Raises: PySliceKitNoSegmentsError(&quot;All candidate segments were dropped...&quot;)</span>
+<span class="c1"># Raises: PySliceKitNoSegmentsError("All candidate segments were dropped...")</span>
 </pre></div>
 </div>
 </dd></dl>
