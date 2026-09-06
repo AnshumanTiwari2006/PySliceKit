@@ -80,3 +80,5 @@ The **Worst Segments Bar Chart** automatically extracts and sorts the worst offe
 
 ## License
 Licensed under the [MIT License](https://github.com/AnshumanTiwari2006/PySliceKit/blob/main/LICENSE) (See GitHub for details).
+
+Please star it if you like it !
