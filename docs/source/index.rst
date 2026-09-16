@@ -28,6 +28,7 @@ Welcome to PySliceKit's documentation!
 
    getting_started
    user_guide
+   correction_guide
    api
    faq
    changelog

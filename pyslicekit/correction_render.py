@@ -26,6 +26,34 @@ def render_correction_comparison(
     save_path: Optional[str] = None
 ) -> plt.Figure:
     
+    """
+    Render a comparison chart showing segments that were significant before
+    multiple-comparisons correction but were no longer significant afterward.
+
+    Parameters
+    ----------
+    results : List[SliceResult]
+        Results returned by ``pyslicekit.evaluate()``.
+    method : str, optional
+        Multiple-comparisons correction method, such as ``"fdr_bh"`` or
+        ``"bonferroni"``. Default is ``"fdr_bh"``.
+    alpha : float, optional
+        Significance level used for correction. Default is ``0.05``.
+    figsize : tuple of int, optional
+        Figure size as ``(width, height)``. Default is ``(14, 8)``.
+    save_path : str or None, optional
+        Optional path where the generated figure will be saved.
+
+    Returns
+    -------
+    matplotlib.figure.Figure
+        The generated comparison figure.
+
+    Raises
+    ------
+    PySliceKitRenderError
+        If ``results`` is empty or rendering fails.
+    """
     if not results:
         raise PySliceKitRenderError("results list is empty. Nothing to render.")
 

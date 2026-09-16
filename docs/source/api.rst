@@ -28,3 +28,13 @@ Exceptions
    :members:
 .. autoexception:: pyslicekit.exceptions.PySliceKitNoSegmentsError
    :members:
+
+
+Correction
+----------
+
+.. autofunction:: pyslicekit.correction.apply_correction
+
+.. autofunction:: pyslicekit.correction_render.render_correction_comparison
+
+.. autofunction:: pyslicekit.correction_report.export_correction_report

@@ -14,6 +14,28 @@ def export_correction_report(
     method: str = "fdr_bh",
     alpha: float = 0.05
 ) -> None:
+    """
+    Export a plain-text report comparing significance before and after
+    multiple-comparisons correction.
+
+    Parameters
+    ----------
+    results : List[SliceResult]
+        Results returned by ``pyslicekit.evaluate()``.
+    filepath : str
+        Destination path for the text report.
+    method : str, optional
+        Multiple-comparisons correction method, such as ``"fdr_bh"`` or
+        ``"bonferroni"``. Default is ``"fdr_bh"``.
+    alpha : float, optional
+        Significance level used for correction. Default is ``0.05``.
+
+    Returns
+    -------
+    None
+        The report is written to ``filepath``. If ``results`` is empty,
+        the function returns without writing a report.
+    """
     if not results:
         return
         

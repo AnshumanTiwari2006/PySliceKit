@@ -30,3 +30,14 @@ What's next
 * **Performance Enhancements**: Integration of multiprocessing/parallelization to handle massive datasets and deeper slice combinations faster.
 * **Interactive Dashboard**: Export capabilities that automatically generate an interactive HTML dashboard.
 * **Custom Metrics**: Allowing users to pass their own callable metric functions instead of just pre-defined string names.
+
+
+[v2.0.1] - Multiple-Testing Correction
+----------------------------------------
+
+Features
+^^^^^^^^
+* Added multiple-testing correction through ``apply_correction()``.
+* Added FDR-BH correction support for eligible segment p-values.
+* Added correction comparison rendering and text-report export examples.
+* Added documentation examples for California Housing and Breast Cancer.

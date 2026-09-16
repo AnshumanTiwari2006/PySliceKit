@@ -69,3 +69,23 @@ venv.bak/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+
+# Local validation and development files
+append_datasets.py
+run_experiments.py
+verify_correction_pipeline.py
+pyslicekit/verify_correction_pipeline.py
+
+# Architecture archive and temporary documentation
+pyslicekit_architecture.zip
+pyslicekit_architecture.md
+
+# Build, validation, and installation logs
+build.log
+multi_python_test.log
+release_validation_*.log
+testpypi_install_test.log
+
+# Generated verification output
+pyslicekit/verification_output/

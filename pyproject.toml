@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyslicekit"
-version = "2.0.0"
+version = "2.0.1"
 description = "A library for discovering underperforming segments in machine learning models."
 readme = "README.md"
 authors = [
-  { name = "Your Name", email = "your.email@example.com" }
+  { name = "Anshuman_Tiwari", email = "anshumantiwarirenukoot@example.com" }
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -24,13 +24,18 @@ dependencies = [
     "numpy",
     "scikit-learn",
     "scipy",
-    "matplotlib"
+    "matplotlib",
+    "statsmodels"
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest"
 ]
+
+[tool.setuptools.packages.find]
+include = ["pyslicekit*"]
+exclude = ["verification_output*"]
 
 [project.urls]
 Homepage = "https://github.com/YOUR_USERNAME_HERE/PySliceKit"
@@ -39,7 +44,3 @@ Repository = "https://github.com/YOUR_USERNAME_HERE/PySliceKit.git"
 Issues = "https://github.com/YOUR_USERNAME_HERE/PySliceKit/issues"
 Changelog = "https://github.com/YOUR_USERNAME_HERE/PySliceKit/blob/main/CHANGELOG.md"
 "Discussion Board" = "https://github.com/YOUR_USERNAME_HERE/PySliceKit/discussions"
-
-[tool.setuptools.packages.find]
-include = ["pyslicekit*"]
-exclude = ["tests*", "examples*", "docs*", "verification_output*"]

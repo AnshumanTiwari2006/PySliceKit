@@ -351,7 +351,9 @@ California Housing dataset and evaluate it with MAE.
         slice_cols=['HouseAge', 'AveRooms'],
         metric='mae',
         min_samples=50,
-        depth=2
+        depth=2,
+        render_visuals=True,
+        top_n=15
     )
 
     # Inspect the top 3 worst segments programmatically
@@ -443,7 +445,9 @@ using F1 score as the metric.
         slice_cols=['mean radius', 'mean texture'],
         metric='f1',
         min_samples=10,
-        depth=2
+        depth=2,
+        render_visuals=True,
+        top_n=15
     )
 
 **Heatmap output:**
@@ -572,7 +576,7 @@ calling ``pyslicekit.evaluate()`` in automated pipelines).
 .. code-block:: python
 
     # Headless pipeline — no charts, just data
-    results=pyslicekit.evaluate(
+    results = pyslicekit.evaluate(
         model=model,
         df=X_test,
         y_true=y_test,

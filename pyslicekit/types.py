@@ -152,6 +152,15 @@ class SliceResult:
         return abs(self.gap)
 
     def __repr__(self) -> str:
+        """
+        Return a concise, human-readable representation of this slice result.
+
+        Returns
+        -------
+        str
+            A summary containing the segment label, sample count, metric value,
+            gap, and relevant significance or low-sample markers.
+        """
         sig_marker = "*" if self.is_significant else ""
         low_marker = " [low-n]" if self.low_n else ""
         return (

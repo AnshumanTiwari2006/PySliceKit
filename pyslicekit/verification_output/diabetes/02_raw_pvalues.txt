@@ -1,7 +1,0 @@
-age_group=Young & bmi_group=Low | p_value=0.056000
-bmi_group=Low | p_value=0.086000
-bmi_group=Med | p_value=0.330000
-bmi_group=High | p_value=0.372000
-age_group=Old | p_value=0.854000
-age_group=Young | p_value=0.874000
-age_group=Middle | p_value=0.974000
