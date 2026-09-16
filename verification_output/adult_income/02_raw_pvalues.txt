@@ -1,0 +1,16 @@
+race=Other | p_value=0.006144
+sex=Male & race=Other | p_value=0.054108
+sex=Female & race=Black | p_value=0.000074
+sex=Female & race=Amer-Indian-Eskimo | p_value=0.228059
+race=Black | p_value=0.000006
+sex=Male & race=Asian-Pac-Islander | p_value=0.082324
+sex=Female | p_value=0.000000
+race=Amer-Indian-Eskimo | p_value=0.225630
+sex=Male & race=Black | p_value=0.013922
+sex=Female & race=White | p_value=0.000000
+race=Asian-Pac-Islander | p_value=0.183221
+sex=Male & race=White | p_value=0.000000
+sex=Male & race=Amer-Indian-Eskimo | p_value=0.577632
+sex=Male | p_value=0.000002
+race=White | p_value=0.097365
+sex=Female & race=Asian-Pac-Islander | p_value=0.877048

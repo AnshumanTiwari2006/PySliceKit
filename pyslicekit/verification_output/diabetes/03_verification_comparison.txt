@@ -1,0 +1,12 @@
+Total eligible segments: 7
+BH agreement: 7/7 segments match
+Bonferroni agreement: 7/7 segments match
+OVERALL STATUS: PASS
+
+age_group=Young & bmi_group=Low | raw_p=0.056000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+bmi_group=Low | raw_p=0.086000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+bmi_group=Med | raw_p=0.330000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+bmi_group=High | raw_p=0.372000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+age_group=Old | raw_p=0.854000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+age_group=Young | raw_p=0.874000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+age_group=Middle | raw_p=0.974000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True

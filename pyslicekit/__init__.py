@@ -10,4 +10,4 @@ from pyslicekit.types import SliceResult
 from pyslicekit.exceptions import PySliceKitError
 
 __all__ = ["evaluate", "to_csv", "to_json", "SliceResult", "PySliceKitError"]
-__version__ = "0.1.0"
+__version__ = "2.0.0"

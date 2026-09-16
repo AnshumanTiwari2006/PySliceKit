@@ -94,7 +94,8 @@ class SliceResult:
         Renderer displays a warning overlay on these cells.
 
     p_value : float or None
-        The p-value from the significance test.
+        The p-value from the significance test (for bootstrap tests, 
+        this is a two-tailed pseudo-p-value based on percentile rank).
         None when the test could not be run (e.g. n=0, all same label).
 
     test_used : str or None

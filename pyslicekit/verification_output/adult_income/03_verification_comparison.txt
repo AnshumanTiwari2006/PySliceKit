@@ -1,0 +1,21 @@
+Total eligible segments: 16
+BH agreement: 16/16 segments match
+Bonferroni agreement: 16/16 segments match
+OVERALL STATUS: PASS
+
+race=Other | raw_p=0.006144 | manual_BH_sig=True | library_BH_sig=True | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+sex=Male & race=Other | raw_p=0.054108 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+sex=Female & race=Black | raw_p=0.000074 | manual_BH_sig=True | library_BH_sig=True | MATCH=True | manual_Bonf_sig=True | library_Bonf_sig=True | MATCH=True
+sex=Female & race=Amer-Indian-Eskimo | raw_p=0.228059 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+race=Black | raw_p=0.000006 | manual_BH_sig=True | library_BH_sig=True | MATCH=True | manual_Bonf_sig=True | library_Bonf_sig=True | MATCH=True
+sex=Male & race=Asian-Pac-Islander | raw_p=0.082324 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+sex=Female | raw_p=0.000000 | manual_BH_sig=True | library_BH_sig=True | MATCH=True | manual_Bonf_sig=True | library_Bonf_sig=True | MATCH=True
+race=Amer-Indian-Eskimo | raw_p=0.225630 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+sex=Male & race=Black | raw_p=0.013922 | manual_BH_sig=True | library_BH_sig=True | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+sex=Female & race=White | raw_p=0.000000 | manual_BH_sig=True | library_BH_sig=True | MATCH=True | manual_Bonf_sig=True | library_Bonf_sig=True | MATCH=True
+race=Asian-Pac-Islander | raw_p=0.183221 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+sex=Male & race=White | raw_p=0.000000 | manual_BH_sig=True | library_BH_sig=True | MATCH=True | manual_Bonf_sig=True | library_Bonf_sig=True | MATCH=True
+sex=Male & race=Amer-Indian-Eskimo | raw_p=0.577632 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+sex=Male | raw_p=0.000002 | manual_BH_sig=True | library_BH_sig=True | MATCH=True | manual_Bonf_sig=True | library_Bonf_sig=True | MATCH=True
+race=White | raw_p=0.097365 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+sex=Female & race=Asian-Pac-Islander | raw_p=0.877048 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
