@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Frequently Asked Questions (FAQ)" href="faq.html" />
-    <link rel="prev" title="User Guide" href="user_guide.html" />
+    <link rel="prev" title="Multiple-Testing Correction" href="correction_guide.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -404,6 +404,98 @@ and there is nothing left to evaluate.</p>
 </dd></dl>
 
 </section>
+<section id="correction">
+<h2>Correction<a class="headerlink" href="#correction" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslicekit.correction.apply_correction">
+<span class="sig-prename descclassname"><span class="pre">pyslicekit.correction.</span></span><span class="sig-name descname"><span class="pre">apply_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyslicekit.types.SliceResult" title="pyslicekit.types.SliceResult"><span class="pre">SliceResult</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fdr_bh'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyslicekit.types.SliceResult" title="pyslicekit.types.SliceResult"><span class="pre">SliceResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/pyslicekit/correction.html#apply_correction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslicekit.correction.apply_correction" title="Link to this definition">¶</a></dt>
+<dd><p>Applies multiple-comparisons correction to the evaluated segments.</p>
+<p>Multiple-comparisons correction addresses the problem of inflated false
+positive rates when conducting many statistical tests simultaneously.
+When evaluate() runs at depth=2, it can generate hundreds of simultaneous
+hypothesis tests (one per segment with test_used in {“proportion_z”,
+“fisher_exact”, “bootstrap_ci”}). This meaningfully inflates the chance
+of observing is_significant=True purely by noise.</p>
+<ul class="simple">
+<li><p>“bonferroni” controls the family-wise error rate (FWER) and is very
+conservative. It guarantees the probability of even one false positive
+across all tests is &lt;= alpha.</p></li>
+<li><p>“fdr_bh” (Benjamini-Hochberg) controls the false discovery rate (FDR).
+It ensures that out of all segments declared significant, only alpha
+proportion are expected to be false positives. This is standard in
+most applied contexts because it is more powerful than Bonferroni.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<em>List</em><em>[</em><a class="reference internal" href="#pyslicekit.types.SliceResult" title="pyslicekit.types.SliceResult"><em>SliceResult</em></a><em>]</em>) – The results from evaluate().</p></li>
+<li><p><strong>method</strong> (<em>str</em>) – The correction method to use, e.g., “bonferroni” or “fdr_bh”.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – The alpha level for the correction (default 0.05).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The mutated results list, for chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#pyslicekit.types.SliceResult" title="pyslicekit.types.SliceResult">SliceResult</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslicekit.correction_render.render_correction_comparison">
+<span class="sig-prename descclassname"><span class="pre">pyslicekit.correction_render.</span></span><span class="sig-name descname"><span class="pre">render_correction_comparison</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyslicekit.types.SliceResult" title="pyslicekit.types.SliceResult"><span class="pre">SliceResult</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fdr_bh'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(14,</span> <span class="pre">8)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="reference internal" href="_modules/pyslicekit/correction_render.html#render_correction_comparison"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslicekit.correction_render.render_correction_comparison" title="Link to this definition">¶</a></dt>
+<dd><p>Render a comparison chart showing segments that were significant before
+multiple-comparisons correction but were no longer significant afterward.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<em>List</em><em>[</em><a class="reference internal" href="#pyslicekit.types.SliceResult" title="pyslicekit.types.SliceResult"><em>SliceResult</em></a><em>]</em>) – Results returned by <code class="docutils literal notranslate"><span class="pre">pyslicekit.evaluate()</span></code>.</p></li>
+<li><p><strong>method</strong> (<em>str</em><em>, </em><em>optional</em>) – Multiple-comparisons correction method, such as <code class="docutils literal notranslate"><span class="pre">&quot;fdr_bh&quot;</span></code> or
+<code class="docutils literal notranslate"><span class="pre">&quot;bonferroni&quot;</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">&quot;fdr_bh&quot;</span></code>.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em>, </em><em>optional</em>) – Significance level used for correction. Default is <code class="docutils literal notranslate"><span class="pre">0.05</span></code>.</p></li>
+<li><p><strong>figsize</strong> (<em>tuple</em><em> of </em><em>int</em><em>, </em><em>optional</em>) – Figure size as <code class="docutils literal notranslate"><span class="pre">(width,</span> <span class="pre">height)</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">(14,</span> <span class="pre">8)</span></code>.</p></li>
+<li><p><strong>save_path</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Optional path where the generated figure will be saved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The generated comparison figure.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>matplotlib.figure.Figure</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>PySliceKitRenderError</strong> – If <code class="docutils literal notranslate"><span class="pre">results</span></code> is empty or rendering fails.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslicekit.correction_report.export_correction_report">
+<span class="sig-prename descclassname"><span class="pre">pyslicekit.correction_report.</span></span><span class="sig-name descname"><span class="pre">export_correction_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyslicekit.types.SliceResult" title="pyslicekit.types.SliceResult"><span class="pre">SliceResult</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fdr_bh'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/pyslicekit/correction_report.html#export_correction_report"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslicekit.correction_report.export_correction_report" title="Link to this definition">¶</a></dt>
+<dd><p>Export a plain-text report comparing significance before and after
+multiple-comparisons correction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<em>List</em><em>[</em><a class="reference internal" href="#pyslicekit.types.SliceResult" title="pyslicekit.types.SliceResult"><em>SliceResult</em></a><em>]</em>) – Results returned by <code class="docutils literal notranslate"><span class="pre">pyslicekit.evaluate()</span></code>.</p></li>
+<li><p><strong>filepath</strong> (<em>str</em>) – Destination path for the text report.</p></li>
+<li><p><strong>method</strong> (<em>str</em><em>, </em><em>optional</em>) – Multiple-comparisons correction method, such as <code class="docutils literal notranslate"><span class="pre">&quot;fdr_bh&quot;</span></code> or
+<code class="docutils literal notranslate"><span class="pre">&quot;bonferroni&quot;</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">&quot;fdr_bh&quot;</span></code>.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em>, </em><em>optional</em>) – Significance level used for correction. Default is <code class="docutils literal notranslate"><span class="pre">0.05</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The report is written to <code class="docutils literal notranslate"><span class="pre">filepath</span></code>. If <code class="docutils literal notranslate"><span class="pre">results</span></code> is empty,
+the function returns without writing a report.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
 
@@ -427,11 +519,13 @@ and there is nothing left to evaluate.</p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="correction_guide.html">Multiple-Testing Correction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#core-functions">Core Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-types">Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#exporters">Exporters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#correction">Correction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
@@ -442,7 +536,7 @@ and there is nothing left to evaluate.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="user_guide.html" title="previous chapter">User Guide</a></li>
+      <li>Previous: <a href="correction_guide.html" title="previous chapter">Multiple-Testing Correction</a></li>
       <li>Next: <a href="faq.html" title="next chapter">Frequently Asked Questions (FAQ)</a></li>
   </ul></li>
 </ul>

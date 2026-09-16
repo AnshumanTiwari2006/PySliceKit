@@ -79,11 +79,21 @@
 <li class="toctree-l2"><a class="reference internal" href="user_guide.html#next-steps">Next Steps</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="correction_guide.html">Multiple-Testing Correction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="correction_guide.html#why-correction-matters">Why Correction Matters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="correction_guide.html#applying-fdr-bh-correction">Applying FDR-BH Correction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="correction_guide.html#interpreting-the-before-and-after-comparison">Interpreting the Before-and-After Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="correction_guide.html#california-housing-example">California Housing Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="correction_guide.html#breast-cancer-example">Breast Cancer Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="correction_guide.html#recommended-workflow">Recommended Workflow</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api.html#core-functions">Core Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#data-types">Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#exporters">Exporters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#correction">Correction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a><ul>
@@ -107,10 +117,13 @@
 <li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-the-difference-between-metric-value-and-overall-metric">18. What is the difference between <cite>metric_value</cite> and <cite>overall_metric</cite>?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-handle-missing-data-nans-in-my-slice-columns">19. How do I handle missing data (NaNs) in my slice columns?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="faq.html#is-pyslicekit-free-for-commercial-use">20. Is PySliceKit free for commercial use?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-does-apply-correction-do">21. What does <code class="docutils literal notranslate"><span class="pre">apply_correction()</span></code> do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#why-did-a-segment-lose-significance-after-correction">22. Why did a segment lose significance after correction?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#v0-1-0-initial-release">[v0.1.0] - Initial Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#v2-0-1-multiple-testing-correction">[v2.0.1] - Multiple-Testing Correction</a></li>
 </ul>
 </li>
 </ul>
@@ -146,6 +159,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="correction_guide.html">Multiple-Testing Correction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>

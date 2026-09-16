@@ -15,7 +15,7 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="API Reference" href="api.html" />
+    <link rel="next" title="Multiple-Testing Correction" href="correction_guide.html" />
     <link rel="prev" title="Getting Started" href="getting_started.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -344,7 +344,9 @@ California Housing dataset and evaluate it with MAE.</p>
     <span class="n">slice_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">'HouseAge'</span><span class="p">,</span> <span class="s1">'AveRooms'</span><span class="p">],</span>
     <span class="n">metric</span><span class="o">=</span><span class="s1">'mae'</span><span class="p">,</span>
     <span class="n">min_samples</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-    <span class="n">depth</span><span class="o">=</span><span class="mi">2</span>
+    <span class="n">depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">render_visuals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">top_n</span><span class="o">=</span><span class="mi">15</span>
 <span class="p">)</span>
 
 <span class="c1"># Inspect the top 3 worst segments programmatically</span>
@@ -418,7 +420,9 @@ using F1 score as the metric.</p>
     <span class="n">slice_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">'mean radius'</span><span class="p">,</span> <span class="s1">'mean texture'</span><span class="p">],</span>
     <span class="n">metric</span><span class="o">=</span><span class="s1">'f1'</span><span class="p">,</span>
     <span class="n">min_samples</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">depth</span><span class="o">=</span><span class="mi">2</span>
+    <span class="n">depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">render_visuals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">top_n</span><span class="o">=</span><span class="mi">15</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -524,7 +528,7 @@ on Geography alone, but fails specifically for young people in the North.</p></l
 <p>Pass <code class="docutils literal notranslate"><span class="pre">render_visuals=False</span></code> to skip chart generation entirely (useful when
 calling <code class="docutils literal notranslate"><span class="pre">pyslicekit.evaluate()</span></code> in automated pipelines).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Headless pipeline — no charts, just data</span>
-<span class="n">results</span><span class="o">=</span><span class="n">pyslicekit</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pyslicekit</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
     <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
     <span class="n">df</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span>
     <span class="n">y_true</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span>
@@ -639,6 +643,7 @@ the full list of supported metric strings.</p></li>
 <li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="correction_guide.html">Multiple-Testing Correction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
@@ -649,7 +654,7 @@ the full list of supported metric strings.</p></li>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="getting_started.html" title="previous chapter">Getting Started</a></li>
-      <li>Next: <a href="api.html" title="next chapter">API Reference</a></li>
+      <li>Next: <a href="correction_guide.html" title="next chapter">Multiple-Testing Correction</a></li>
   </ul></li>
 </ul>
 </div>

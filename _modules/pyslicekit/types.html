@@ -188,6 +188,15 @@
         <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gap</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Return a concise, human-readable representation of this slice result.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            A summary containing the segment label, sample count, metric value,</span>
+<span class="sd">            gap, and relevant significance or low-sample markers.</span>
+<span class="sd">        """</span>
         <span class="n">sig_marker</span> <span class="o">=</span> <span class="s2">"*"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_significant</span> <span class="k">else</span> <span class="s2">""</span>
         <span class="n">low_marker</span> <span class="o">=</span> <span class="s2">" [low-n]"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">low_n</span> <span class="k">else</span> <span class="s2">""</span>
         <span class="k">return</span> <span class="p">(</span>
@@ -218,6 +227,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../correction_guide.html">Multiple-Testing Correction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>

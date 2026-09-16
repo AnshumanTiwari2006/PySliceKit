@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>PySliceKit Documentation</title>
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=0fc419ee" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <link rel="stylesheet" type="text/css" href="_static/dark_theme.css?v=dcc02589" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="api.html" />
+    <link rel="prev" title="User Guide" href="user_guide.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="multiple-testing-correction">
+<h1>Multiple-Testing Correction<a class="headerlink" href="#multiple-testing-correction" title="Link to this heading">¶</a></h1>
+<section id="why-correction-matters">
+<h2>Why Correction Matters<a class="headerlink" href="#why-correction-matters" title="Link to this heading">¶</a></h2>
+<p>PySliceKit evaluates many candidate segments. When many statistical tests are
+performed at the same time, some segments may appear significant purely by
+chance, even when there is no real performance difference.</p>
+<p>Multiple-testing correction reduces this risk by adjusting the significance
+decision across the complete set of eligible segment-level tests.</p>
+<p>PySliceKit provides this functionality through <code class="docutils literal notranslate"><span class="pre">apply_correction()</span></code>.</p>
+</section>
+<section id="applying-fdr-bh-correction">
+<h2>Applying FDR-BH Correction<a class="headerlink" href="#applying-fdr-bh-correction" title="Link to this heading">¶</a></h2>
+<p>The Benjamini-Hochberg procedure controls the <strong>false discovery rate (FDR)</strong>.
+Instead of treating every raw p-value independently, it evaluates the complete
+set of eligible p-values and determines which results remain significant after
+correction.</p>
+<p>The correction is applied to an existing list of <code class="docutils literal notranslate"><span class="pre">SliceResult</span></code> objects:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyslicekit.correction</span><span class="w"> </span><span class="kn">import</span> <span class="n">apply_correction</span>
+
+<span class="n">apply_correction</span><span class="p">(</span>
+    <span class="n">results</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">"fdr_bh"</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The correction adds the corrected p-value and corrected significance decision
+to each eligible result. Results that do not have a usable p-value are not
+eligible for correction.</p>
+</section>
+<section id="interpreting-the-before-and-after-comparison">
+<h2>Interpreting the Before-and-After Comparison<a class="headerlink" href="#interpreting-the-before-and-after-comparison" title="Link to this heading">¶</a></h2>
+<p>A segment can be statistically significant before correction but no longer
+significant after correction. This does not mean that the segment disappeared
+from the analysis. It means that the evidence was not strong enough to remain
+significant after accounting for the number of tests performed.</p>
+<p>The correction comparison renderer focuses on segments that were significant
+before correction but lost significance afterward:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyslicekit.correction_render</span><span class="w"> </span><span class="kn">import</span> <span class="n">render_correction_comparison</span>
+
+<span class="n">figure</span> <span class="o">=</span> <span class="n">render_correction_comparison</span><span class="p">(</span>
+    <span class="n">results</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">"fdr_bh"</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+    <span class="n">save_path</span><span class="o">=</span><span class="s2">"docs/_static/correction_comparison.png"</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The optional <code class="docutils literal notranslate"><span class="pre">save_path</span></code> argument is important when the figure is intended
+for Sphinx documentation. Displaying a figure in Jupyter does not automatically
+create a reusable image file for the documentation build.</p>
+</section>
+<section id="california-housing-example">
+<h2>California Housing Example<a class="headerlink" href="#california-housing-example" title="Link to this heading">¶</a></h2>
+<p>The notebook example applies FDR-BH correction to the California Housing
+regression audit. The generated comparison figure is saved as:</p>
+<a class="reference internal image-reference" href="_images/california_housing_correction_comparison.png"><img alt="California Housing significance comparison before and after FDR-BH correction" class="align-center" src="_images/california_housing_correction_comparison.png" style="width: 100%;" />
+</a>
+<p>The corresponding text report is saved by the notebook as
+<code class="docutils literal notranslate"><span class="pre">docs/correction_report_california_housing.txt</span></code>.</p>
+</section>
+<section id="breast-cancer-example">
+<h2>Breast Cancer Example<a class="headerlink" href="#breast-cancer-example" title="Link to this heading">¶</a></h2>
+<p>The same workflow is applied to the Breast Cancer classification audit:</p>
+<a class="reference internal image-reference" href="_images/breast_cancer_correction_comparison.png"><img alt="Breast Cancer significance comparison before and after FDR-BH correction" class="align-center" src="_images/breast_cancer_correction_comparison.png" style="width: 100%;" />
+</a>
+<p>The corresponding text report is saved by the notebook as
+<code class="docutils literal notranslate"><span class="pre">docs/correction_report_breast_cancer.txt</span></code>.</p>
+</section>
+<section id="recommended-workflow">
+<h2>Recommended Workflow<a class="headerlink" href="#recommended-workflow" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">pyslicekit.evaluate()</span></code> to produce the original slice results.</p></li>
+<li><p>Apply <code class="docutils literal notranslate"><span class="pre">apply_correction()</span></code> to the results.</p></li>
+<li><p>Inspect corrected significance using the fields added to <code class="docutils literal notranslate"><span class="pre">SliceResult.extra</span></code>.</p></li>
+<li><p>Export a correction report for review.</p></li>
+<li><p>Save the comparison figure into the documentation <code class="docutils literal notranslate"><span class="pre">_static</span></code> directory.</p></li>
+<li><p>Reference the saved image from an <code class="docutils literal notranslate"><span class="pre">.rst</span></code> page.</p></li>
+</ol>
+<p>Correction is an additional statistical safeguard. It should be used together
+with sample-size checks, effect-size inspection, and domain knowledge.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">PySliceKit</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Multiple-Testing Correction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#why-correction-matters">Why Correction Matters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#applying-fdr-bh-correction">Applying FDR-BH Correction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interpreting-the-before-and-after-comparison">Interpreting the Before-and-After Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#california-housing-example">California Housing Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#breast-cancer-example">Breast Cancer Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recommended-workflow">Recommended Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="user_guide.html" title="previous chapter">User Guide</a></li>
+      <li>Next: <a href="api.html" title="next chapter">API Reference</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Anshuman Tiwari.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/correction_guide.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

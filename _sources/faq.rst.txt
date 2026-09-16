@@ -80,3 +80,12 @@ You should impute or drop NaNs in your ``df`` before passing it to ``evaluate()`
 20. Is PySliceKit free for commercial use?
 ------------------------------------------
 Yes! PySliceKit is distributed under the open-source MIT License.
+
+
+21. What does ``apply_correction()`` do?
+-----------------------------------------
+``apply_correction()`` adjusts eligible segment-level p-values for multiple testing and records whether each segment remains significant after correction. The ``fdr_bh`` method applies the Benjamini-Hochberg false-discovery-rate procedure.
+
+22. Why did a segment lose significance after correction?
+-----------------------------------------------------------
+A segment may be significant before correction but not afterward because the corrected decision accounts for the number of statistical tests. The segment remains available in the results; only its corrected significance status changes.
