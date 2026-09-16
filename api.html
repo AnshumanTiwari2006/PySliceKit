@@ -191,7 +191,8 @@ Renderer displays a warning overlay on these cells.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyslicekit.types.SliceResult.p_value">
 <span class="sig-name descname"><span class="pre">p_value</span></span><a class="headerlink" href="#pyslicekit.types.SliceResult.p_value" title="Link to this definition">¶</a></dt>
-<dd><p>The p-value from the significance test.
+<dd><p>The p-value from the significance test (for bootstrap tests,
+this is a two-tailed pseudo-p-value based on percentile rank).
 None when the test could not be run (e.g. n=0, all same label).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
