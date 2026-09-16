@@ -1,0 +1,19 @@
+Total segments evaluated: 17
+Eligible for testing: 16
+Correction method: fdr_bh
+Alpha value: 0.05
+
+Significant before correction: 8
+Significant after correction: 8
+
+SEGMENTS THAT LOST SIGNIFICANCE AFTER CORRECTION:
+
+SEGMENTS THAT REMAIN SIGNIFICANT AFTER CORRECTION:
+race=Other | n=80 | gap=0.1218 | p_value=0.0061 | p_value_corrected=0.0140
+sex=Female & race=Black | n=405 | gap=0.0783 | p_value=0.0001 | p_value_corrected=0.0002
+race=Black | n=833 | gap=0.0623 | p_value=0.0000 | p_value_corrected=0.0000
+sex=Female | n=2923 | gap=0.0511 | p_value=0.0000 | p_value_corrected=0.0000
+sex=Male & race=Black | n=428 | gap=0.0473 | p_value=0.0139 | p_value_corrected=0.0278
+sex=Female & race=White | n=2372 | gap=0.0463 | p_value=0.0000 | p_value_corrected=0.0000
+sex=Male & race=White | n=5427 | gap=-0.0310 | p_value=0.0000 | p_value_corrected=0.0000
+sex=Male | n=6122 | gap=-0.0244 | p_value=0.0000 | p_value_corrected=0.0000

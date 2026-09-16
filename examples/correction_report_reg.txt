@@ -1,0 +1,15 @@
+Total segments evaluated: 24
+Eligible for testing: 24
+Correction method: fdr_bh
+Alpha value: 0.05
+
+Significant before correction: 4
+Significant after correction: 1
+
+SEGMENTS THAT LOST SIGNIFICANCE AFTER CORRECTION:
+HouseAge=Q4(37–52) & ocean_proximity=NEAR OCEAN | n=230 | gap=0.0630 | p_value=0.0420 | p_value_corrected=0.2520
+HouseAge=Q3(29–37) & ocean_proximity=NEAR BAY | n=262 | gap=-0.0495 | p_value=0.0420 | p_value_corrected=0.2520
+HouseAge=Q3(29–37) & ocean_proximity=<1H OCEAN | n=249 | gap=-0.0482 | p_value=0.0260 | p_value_corrected=0.2520
+
+SEGMENTS THAT REMAIN SIGNIFICANT AFTER CORRECTION:
+HouseAge=Q3(29–37) | n=1025 | gap=-0.0394 | p_value=0.0020 | p_value_corrected=0.0480

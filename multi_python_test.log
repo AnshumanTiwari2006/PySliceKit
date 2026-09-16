@@ -1,0 +1,216 @@
+=== Testing Python 3.8.18 ===
+[notice] To update, run: /home/adi/.pyenv/versions/3.8.18/bin/python -m pip install --upgrade pip
+[notice] To update, run: /home/adi/.pyenv/versions/3.8.18/bin/python -m pip install --upgrade pip
+Version: 2.0.0
+============================= test session starts ==============================
+platform linux -- Python 3.8.18, pytest-8.3.5, pluggy-1.5.0 -- /home/adi/.pyenv/versions/3.8.18/bin/python
+cachedir: .pytest_cache
+rootdir: /home/adi/PySliceKit
+configfile: pyproject.toml
+collecting ... collected 15 items
+
+tests/test_api.py::test_breast_cancer_binary_classification PASSED       [  6%]
+tests/test_api.py::test_california_housing_regression PASSED             [ 13%]
+tests/test_api.py::test_iris_multiclass_binarized PASSED                 [ 20%]
+tests/test_api.py::test_diabetes_regression PASSED                       [ 26%]
+tests/test_api.py::test_wine_classification_binarized PASSED             [ 33%]
+tests/test_pyslicekit.py::test_slicer PASSED                             [ 40%]
+tests/test_pyslicekit.py::test_stats PASSED                              [ 46%]
+tests/test_pyslicekit.py::test_significance_flagger PASSED               [ 53%]
+tests/test_pyslicekit.py::test_end_to_end_happy_path PASSED              [ 60%]
+tests/test_pyslicekit.py::test_regression_path PASSED                    [ 66%]
+tests/test_pyslicekit.py::test_export_round_trip PASSED                  [ 73%]
+tests/test_pyslicekit.py::test_all_empty_segments PASSED                 [ 80%]
+tests/test_pyslicekit.py::test_single_class_segment PASSED               [ 86%]
+tests/test_pyslicekit.py::test_mismatched_lengths PASSED                 [ 93%]
+tests/test_pyslicekit.py::test_numeric_only_dataframe PASSED             [100%]
+
+=============================== warnings summary ===============================
+tests/test_api.py::test_breast_cancer_binary_classification
+tests/test_api.py::test_wine_classification_binarized
+  /home/adi/.pyenv/versions/3.8.18/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:460: ConvergenceWarning: lbfgs failed to converge (status=1):
+  STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+  
+  Increase the number of iterations (max_iter) or scale the data as shown in:
+      https://scikit-learn.org/stable/modules/preprocessing.html
+  Please also refer to the documentation for alternative solver options:
+      https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+    n_iter_i = _check_optimize_result(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 15 passed, 2 warnings in 16.05s ========================
+
+=== Testing Python 3.9.18 ===
+[notice] To update, run: /home/adi/.pyenv/versions/3.9.18/bin/python -m pip install --upgrade pip
+[notice] To update, run: /home/adi/.pyenv/versions/3.9.18/bin/python -m pip install --upgrade pip
+Version: 2.0.0
+=============================== warnings summary ===============================
+../.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:64
+  /home/adi/.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))
+
+../.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:85
+../.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:85
+../.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:85
+../.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:85
+../.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:85
+../.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:85
+  /home/adi/.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+    parse = parser.parseString(pattern)
+
+../.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:89
+../.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:89
+../.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:89
+../.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:89
+../.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:89
+../.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:89
+  /home/adi/.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
+    parser.resetCache()
+
+../.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_mathtext.py:45
+  /home/adi/.pyenv/versions/3.9.18/lib/python3.9/site-packages/matplotlib/_mathtext.py:45: PyparsingDeprecationWarning: 'enablePackrat' deprecated - use 'enable_packrat'
+    ParserElement.enablePackrat()
+
+tests/test_api.py::test_breast_cancer_binary_classification
+tests/test_api.py::test_wine_classification_binarized
+  /home/adi/.pyenv/versions/3.9.18/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+  STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+  
+  Increase the number of iterations (max_iter) or scale the data as shown in:
+      https://scikit-learn.org/stable/modules/preprocessing.html
+  Please also refer to the documentation for alternative solver options:
+      https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+    n_iter_i = _check_optimize_result(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 15 passed, 16 warnings in 14.77s =======================
+
+=== Testing Python 3.10.13 ===
+[notice] To update, run: /home/adi/.pyenv/versions/3.10.13/bin/python -m pip install --upgrade pip
+[notice] To update, run: /home/adi/.pyenv/versions/3.10.13/bin/python -m pip install --upgrade pip
+Version: 2.0.0
+============================= test session starts ==============================
+platform linux -- Python 3.10.13, pytest-9.1.1, pluggy-1.6.0 -- /home/adi/.pyenv/versions/3.10.13/bin/python
+cachedir: .pytest_cache
+rootdir: /home/adi/PySliceKit
+configfile: pyproject.toml
+collecting ... collected 15 items
+
+tests/test_api.py::test_breast_cancer_binary_classification PASSED       [  6%]
+tests/test_api.py::test_california_housing_regression PASSED             [ 13%]
+tests/test_api.py::test_iris_multiclass_binarized PASSED                 [ 20%]
+tests/test_api.py::test_diabetes_regression PASSED                       [ 26%]
+tests/test_api.py::test_wine_classification_binarized PASSED             [ 33%]
+tests/test_pyslicekit.py::test_slicer PASSED                             [ 40%]
+tests/test_pyslicekit.py::test_stats PASSED                              [ 46%]
+tests/test_pyslicekit.py::test_significance_flagger PASSED               [ 53%]
+tests/test_pyslicekit.py::test_end_to_end_happy_path PASSED              [ 60%]
+tests/test_pyslicekit.py::test_regression_path PASSED                    [ 66%]
+tests/test_pyslicekit.py::test_export_round_trip PASSED                  [ 73%]
+tests/test_pyslicekit.py::test_all_empty_segments PASSED                 [ 80%]
+tests/test_pyslicekit.py::test_single_class_segment PASSED               [ 86%]
+tests/test_pyslicekit.py::test_mismatched_lengths PASSED                 [ 93%]
+tests/test_pyslicekit.py::test_numeric_only_dataframe PASSED             [100%]
+
+=============================== warnings summary ===============================
+tests/test_api.py::test_breast_cancer_binary_classification
+tests/test_api.py::test_wine_classification_binarized
+  /home/adi/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/linear_model/_logistic.py:473: ConvergenceWarning: lbfgs failed to converge after 100 iteration(s) (status=1):
+  STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+  
+  Increase the number of iterations to improve the convergence (max_iter=100).
+  You might also want to scale the data as shown in:
+      https://scikit-learn.org/stable/modules/preprocessing.html
+  Please also refer to the documentation for alternative solver options:
+      https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+    n_iter_i = _check_optimize_result(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 15 passed, 2 warnings in 13.85s ========================
+
+=== Testing Python 3.11.9 ===
+[notice] To update, run: /home/adi/.pyenv/versions/3.11.9/bin/python -m pip install --upgrade pip
+[notice] To update, run: /home/adi/.pyenv/versions/3.11.9/bin/python -m pip install --upgrade pip
+Version: 2.0.0
+============================= test session starts ==============================
+platform linux -- Python 3.11.9, pytest-9.1.1, pluggy-1.6.0 -- /home/adi/.pyenv/versions/3.11.9/bin/python
+cachedir: .pytest_cache
+rootdir: /home/adi/PySliceKit
+configfile: pyproject.toml
+collecting ... collected 15 items
+
+tests/test_api.py::test_breast_cancer_binary_classification PASSED       [  6%]
+tests/test_api.py::test_california_housing_regression PASSED             [ 13%]
+tests/test_api.py::test_iris_multiclass_binarized PASSED                 [ 20%]
+tests/test_api.py::test_diabetes_regression PASSED                       [ 26%]
+tests/test_api.py::test_wine_classification_binarized PASSED             [ 33%]
+tests/test_pyslicekit.py::test_slicer PASSED                             [ 40%]
+tests/test_pyslicekit.py::test_stats PASSED                              [ 46%]
+tests/test_pyslicekit.py::test_significance_flagger PASSED               [ 53%]
+tests/test_pyslicekit.py::test_end_to_end_happy_path PASSED              [ 60%]
+tests/test_pyslicekit.py::test_regression_path PASSED                    [ 66%]
+tests/test_pyslicekit.py::test_export_round_trip PASSED                  [ 73%]
+tests/test_pyslicekit.py::test_all_empty_segments PASSED                 [ 80%]
+tests/test_pyslicekit.py::test_single_class_segment PASSED               [ 86%]
+tests/test_pyslicekit.py::test_mismatched_lengths PASSED                 [ 93%]
+tests/test_pyslicekit.py::test_numeric_only_dataframe PASSED             [100%]
+
+=============================== warnings summary ===============================
+tests/test_api.py::test_breast_cancer_binary_classification
+tests/test_api.py::test_wine_classification_binarized
+  /home/adi/.pyenv/versions/3.11.9/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 100 iteration(s) (status=1):
+  STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+  
+  Increase the number of iterations to improve the convergence (max_iter=100).
+  You might also want to scale the data as shown in:
+      https://scikit-learn.org/stable/modules/preprocessing.html
+  Please also refer to the documentation for alternative solver options:
+      https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+    n_iter_i = _check_optimize_result(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 15 passed, 2 warnings in 13.28s ========================
+
+=== Testing Python 3.12.3 ===
+[notice] To update, run: /home/adi/.pyenv/versions/3.12.3/bin/python -m pip install --upgrade pip
+[notice] To update, run: /home/adi/.pyenv/versions/3.12.3/bin/python -m pip install --upgrade pip
+Version: 2.0.0
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- /home/adi/.pyenv/versions/3.12.3/bin/python
+cachedir: .pytest_cache
+rootdir: /home/adi/PySliceKit
+configfile: pyproject.toml
+collecting ... collected 15 items
+
+tests/test_api.py::test_breast_cancer_binary_classification PASSED       [  6%]
+tests/test_api.py::test_california_housing_regression PASSED             [ 13%]
+tests/test_api.py::test_iris_multiclass_binarized PASSED                 [ 20%]
+tests/test_api.py::test_diabetes_regression PASSED                       [ 26%]
+tests/test_api.py::test_wine_classification_binarized PASSED             [ 33%]
+tests/test_pyslicekit.py::test_slicer PASSED                             [ 40%]
+tests/test_pyslicekit.py::test_stats PASSED                              [ 46%]
+tests/test_pyslicekit.py::test_significance_flagger PASSED               [ 53%]
+tests/test_pyslicekit.py::test_end_to_end_happy_path PASSED              [ 60%]
+tests/test_pyslicekit.py::test_regression_path PASSED                    [ 66%]
+tests/test_pyslicekit.py::test_export_round_trip PASSED                  [ 73%]
+tests/test_pyslicekit.py::test_all_empty_segments PASSED                 [ 80%]
+tests/test_pyslicekit.py::test_single_class_segment PASSED               [ 86%]
+tests/test_pyslicekit.py::test_mismatched_lengths PASSED                 [ 93%]
+tests/test_pyslicekit.py::test_numeric_only_dataframe PASSED             [100%]
+
+=============================== warnings summary ===============================
+tests/test_api.py::test_breast_cancer_binary_classification
+tests/test_api.py::test_wine_classification_binarized
+  /home/adi/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 100 iteration(s) (status=1):
+  STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+  
+  Increase the number of iterations to improve the convergence (max_iter=100).
+  You might also want to scale the data as shown in:
+      https://scikit-learn.org/stable/modules/preprocessing.html
+  Please also refer to the documentation for alternative solver options:
+      https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+    n_iter_i = _check_optimize_result(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 15 passed, 2 warnings in 13.33s ========================
+

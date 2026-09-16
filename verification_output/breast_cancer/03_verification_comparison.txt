@@ -1,0 +1,16 @@
+Total eligible segments: 11
+BH agreement: 11/11 segments match
+Bonferroni agreement: 11/11 segments match
+OVERALL STATUS: PASS
+
+mean texture=Q3(19.3–22.4) | raw_p=0.038032 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+mean radius=Q3(13.5–15.9) | raw_p=0.001933 | manual_BH_sig=True | library_BH_sig=True | MATCH=True | manual_Bonf_sig=True | library_Bonf_sig=True | MATCH=True
+mean texture=Q2(16.2–19.3) | raw_p=0.309108 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+mean radius=Q1(6.98–11.6) | raw_p=0.309108 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+mean radius=Q2(11.6–13.5) & mean texture=Q2(16.2–19.3) | raw_p=1.000000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+mean radius=Q2(11.6–13.5) & mean texture=Q1(10.4–16.2) | raw_p=1.000000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+mean radius=Q3(13.5–15.9) & mean texture=Q2(16.2–19.3) | raw_p=1.000000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+mean radius=Q1(6.98–11.6) & mean texture=Q1(10.4–16.2) | raw_p=1.000000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+mean radius=Q2(11.6–13.5) | raw_p=0.995492 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+mean texture=Q1(10.4–16.2) | raw_p=0.995492 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+mean texture=Q4(22.4–31.1) | raw_p=0.995492 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True

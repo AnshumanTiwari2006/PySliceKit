@@ -1,0 +1,59 @@
+dataset,label,n,test_used,test_group,gap,abs_gap,norm_gap,raw_p,bh_p,bh_sig,sig_before
+california_housing,HouseAge=Q4(37–52) & ocean_proximity=NEAR OCEAN,230,bootstrap_ci,bootstrap_ci,0.06303360817366077,0.06303360817366077,0.19233332449545984,0.042,1.0,False,True
+california_housing,HouseAge=Q3(29–37) & ocean_proximity=NEAR BAY,262,bootstrap_ci,bootstrap_ci,-0.04951822856049154,0.04951822856049154,0.15109408771153082,0.042,1.0,False,True
+california_housing,HouseAge=Q3(29–37) & ocean_proximity=<1H OCEAN,249,bootstrap_ci,bootstrap_ci,-0.0481749041835946,0.0481749041835946,0.1469952259967997,0.026,0.624,False,True
+california_housing,HouseAge=Q3(29–37) & ocean_proximity=INLAND,266,bootstrap_ci,bootstrap_ci,-0.04411471204209638,0.04411471204209638,0.13460643412384765,0.06,1.0,False,False
+california_housing,HouseAge=Q3(29–37),1025,bootstrap_ci,bootstrap_ci,-0.039428977648184815,0.039428977648184815,0.12030893633186315,0.002,0.048,True,True
+california_housing,HouseAge=Q1(0.999–18) & ocean_proximity=INLAND,258,bootstrap_ci,bootstrap_ci,0.039227769525193745,0.039227769525193745,0.11969499357447339,0.112,1.0,False,False
+california_housing,HouseAge=Q4(37–52),1005,bootstrap_ci,bootstrap_ci,0.0188184803108008,0.0188184803108008,0.05742049336850565,0.146,1.0,False,False
+california_housing,HouseAge=Q1(0.999–18) & ocean_proximity=NEAR OCEAN,263,bootstrap_ci,bootstrap_ci,0.018603092536364718,0.018603092536364718,0.056763284493537895,0.382,1.0,False,False
+california_housing,ocean_proximity=NEAR OCEAN,1005,bootstrap_ci,bootstrap_ci,0.018311907474979794,0.018311907474979794,0.05587479670865207,0.16,1.0,False,False
+california_housing,HouseAge=Q3(29–37) & ocean_proximity=NEAR OCEAN,248,bootstrap_ci,bootstrap_ci,-0.014963151861402957,0.014963151861402957,0.04565679842577414,0.544,1.0,False,False
+california_housing,ocean_proximity=<1H OCEAN,1044,bootstrap_ci,bootstrap_ci,-0.014870749531653571,0.014870749531653571,0.04537485284488874,0.162,1.0,False,False
+california_housing,HouseAge=Q1(0.999–18),1049,bootstrap_ci,bootstrap_ci,0.013714273392294918,0.013714273392294918,0.04184611782515575,0.246,1.0,False,False
+california_housing,HouseAge=Q2(18–29) & ocean_proximity=INLAND,257,bootstrap_ci,bootstrap_ci,0.011787421858316105,0.011787421858316105,0.035966750102490945,0.642,1.0,False,False
+california_housing,HouseAge=Q4(37–52) & ocean_proximity=INLAND,271,bootstrap_ci,bootstrap_ci,0.01078708596445116,0.01078708596445116,0.03291444302926873,0.686,1.0,False,False
+california_housing,HouseAge=Q2(18–29) & ocean_proximity=NEAR BAY,273,bootstrap_ci,bootstrap_ci,0.010348286945757956,0.010348286945757956,0.03157554340895674,0.684,1.0,False,False
+california_housing,HouseAge=Q2(18–29) & ocean_proximity=NEAR OCEAN,264,bootstrap_ci,bootstrap_ci,0.010318126730972599,0.010318126730972599,0.03148351608345153,0.662,1.0,False,False
+california_housing,HouseAge=Q4(37–52) & ocean_proximity=NEAR BAY,236,bootstrap_ci,bootstrap_ci,0.007559267370417899,0.007559267370417899,0.02306545771736503,0.792,1.0,False,False
+california_housing,ocean_proximity=NEAR BAY,1027,bootstrap_ci,bootstrap_ci,-0.007027578724015493,0.007027578724015493,0.021443125632593197,0.542,1.0,False,False
+california_housing,HouseAge=Q2(18–29),1049,bootstrap_ci,bootstrap_ci,0.006783466719273212,0.006783466719273212,0.020698271025952526,0.546,1.0,False,False
+california_housing,HouseAge=Q1(0.999–18) & ocean_proximity=<1H OCEAN,272,bootstrap_ci,bootstrap_ci,-0.006523853616621111,0.006523853616621111,0.019906118195702132,0.808,1.0,False,False
+california_housing,HouseAge=Q2(18–29) & ocean_proximity=<1H OCEAN,255,bootstrap_ci,bootstrap_ci,-0.0057356024401502,0.0057356024401502,0.017500941438401127,0.814,1.0,False,False
+california_housing,HouseAge=Q1(0.999–18) & ocean_proximity=NEAR BAY,256,bootstrap_ci,bootstrap_ci,0.004481965225290596,0.004481965225290596,0.013675740561737213,0.924,1.0,False,False
+california_housing,ocean_proximity=INLAND,1052,bootstrap_ci,bootstrap_ci,0.00412444757438768,0.00412444757438768,0.012584853329413136,0.652,1.0,False,False
+california_housing,HouseAge=Q4(37–52) & ocean_proximity=<1H OCEAN,268,bootstrap_ci,bootstrap_ci,-0.0010912110573583211,0.0010912110573583211,0.003329592838945728,0.942,1.0,False,False
+breast_cancer,mean texture=Q3(19.3–22.4),35,proportion_z,classification,-0.09206703910614522,0.09206703910614522,0.09471264367816089,0.0380322415997385,0.41835465759712354,False,True
+breast_cancer,mean radius=Q3(13.5–15.9),35,proportion_z,classification,-0.07733019700088206,0.07733019700088206,0.07955232909860856,0.0019332520773698292,0.02126577285106812,True,True
+breast_cancer,mean texture=Q2(16.2–19.3),36,proportion_z,classification,0.027932960893854775,0.027932960893854775,0.028735632183908073,0.3091081171471304,1.0,False,False
+breast_cancer,mean radius=Q1(6.98–11.6),36,proportion_z,classification,0.027932960893854775,0.027932960893854775,0.028735632183908073,0.3091081171471304,1.0,False,False
+breast_cancer,mean radius=Q2(11.6–13.5) & mean texture=Q2(16.2–19.3),15,fisher_exact,classification,0.027932960893854775,0.027932960893854775,0.028735632183908073,1.0,1.0,False,False
+breast_cancer,mean radius=Q2(11.6–13.5) & mean texture=Q1(10.4–16.2),11,fisher_exact,classification,0.027932960893854775,0.027932960893854775,0.028735632183908073,1.0,1.0,False,False
+breast_cancer,mean radius=Q3(13.5–15.9) & mean texture=Q2(16.2–19.3),11,fisher_exact,classification,0.027932960893854775,0.027932960893854775,0.028735632183908073,1.0,1.0,False,False
+breast_cancer,mean radius=Q1(6.98–11.6) & mean texture=Q1(10.4–16.2),14,fisher_exact,classification,0.027932960893854775,0.027932960893854775,0.028735632183908073,1.0,1.0,False,False
+breast_cancer,mean radius=Q2(11.6–13.5),36,proportion_z,classification,0.013440207270666416,0.013440207270666416,0.013826420123271772,0.9954915539847928,1.0,False,False
+breast_cancer,mean texture=Q1(10.4–16.2),36,proportion_z,classification,0.012059945020838847,0.012059945020838847,0.012406495165115826,0.9954915539847928,1.0,False,False
+breast_cancer,mean texture=Q4(22.4–31.1),36,proportion_z,classification,-0.006549797726834838,0.006549797726834838,0.0067380103051921615,0.9954915539847928,1.0,False,False
+adult_income,race=Other,80,proportion_z,classification,0.12179380873410728,0.12179380873410728,0.15163454920853411,0.006143870869231849,0.09830193390770958,False,True
+adult_income,sex=Male & race=Other,54,proportion_z,classification,0.10420121614151467,0.10420121614151467,0.1297315898141776,0.054107615786316066,0.865721852581057,False,False
+adult_income,sex=Female & race=Black,405,proportion_z,classification,0.07827529021558877,0.07827529021558877,0.0974535443909154,7.427204047694147e-05,0.0011883526476310635,True,True
+adult_income,sex=Female & race=Amer-Indian-Eskimo,41,proportion_z,classification,0.07484258922191211,0.07484258922191211,0.09317979621640675,0.22805930377897976,1.0,False,False
+adult_income,race=Black,833,proportion_z,classification,0.062340027221502226,0.062340027221502226,0.07761397745608914,6.024195699616541e-06,9.638713119386466e-05,True,True
+adult_income,sex=Male & race=Asian-Pac-Islander,159,proportion_z,classification,-0.05477851830991798,0.05477851830991798,0.06819982080016629,0.08232379838049919,1.0,False,False
+adult_income,sex=Female,2923,proportion_z,classification,0.05105313134786027,0.05105313134786027,0.0635616755734888,3.851585717029593e-12,6.162537147247349e-11,True,True
+adult_income,race=Amer-Indian-Eskimo,95,proportion_z,classification,0.04942538768147564,0.04942538768147564,0.06153511790487917,0.22562986740127222,1.0,False,False
+adult_income,sex=Male & race=Black,428,proportion_z,classification,0.047261098453733386,0.047261098453733386,0.05884055547336799,0.013921933401587205,0.22275093442539529,False,True
+adult_income,sex=Female & race=White,2372,proportion_z,classification,0.04628790654186443,0.04628790654186443,0.05762892149637492,1.4255197244850137e-08,2.280831559176022e-07,True,True
+adult_income,race=Asian-Pac-Islander,238,proportion_z,classification,-0.03429862824068264,0.03429862824068264,0.042702146240464485,0.18322134730662598,1.0,False,False
+adult_income,sex=Male & race=White,5427,proportion_z,classification,-0.03095632946379212,0.03095632946379212,0.03854094975911903,9.693118974141157e-09,1.5508990358625852e-07,True,True
+adult_income,sex=Male & race=Amer-Indian-Eskimo,54,proportion_z,classification,0.030127142067440604,0.030127142067440604,0.03750860289057127,0.5776322386739703,1.0,False,False
+adult_income,sex=Male,6122,proportion_z,classification,-0.02437574369973794,0.02437574369973794,0.030348052548400502,1.6092134267342573e-06,2.5747414827748116e-05,True,True
+adult_income,race=White,7799,proportion_z,classification,-0.007463147285895366,0.007463147285895366,0.009291695416507031,0.09736547313838906,1.0,False,False
+adult_income,sex=Female & race=Asian-Pac-Islander,79,proportion_z,classification,0.006920391012588234,0.006920391012588234,0.00861595825311226,0.8770481054336721,1.0,False,False
+diabetes,age_group=Young & bmi_group=Low,17,bootstrap_ci,bootstrap_ci,-12.224669966400938,12.224669966400938,0.2649538931942645,0.056,0.392,False,False
+diabetes,bmi_group=Low,38,bootstrap_ci,bootstrap_ci,-7.595986194928564,7.595986194928564,0.16463316560101254,0.086,0.602,False,False
+diabetes,bmi_group=Med,23,bootstrap_ci,bootstrap_ci,6.015318421378346,6.015318421378346,0.1303742382352916,0.33,1.0,False,False
+diabetes,bmi_group=High,28,bootstrap_ci,bootstrap_ci,5.36768398984227,5.36768398984227,0.11633760047952757,0.372,1.0,False,False
+diabetes,age_group=Old,28,bootstrap_ci,bootstrap_ci,0.8181856040278319,0.8181856040278319,0.017733113592308905,0.854,1.0,False,False
+diabetes,age_group=Young,40,bootstrap_ci,bootstrap_ci,-0.514382600981385,0.514382600981385,0.011148576861051591,0.874,1.0,False,False
+diabetes,age_group=Middle,21,bootstrap_ci,bootstrap_ci,-0.11113775588208341,0.11113775588208341,0.0024087669591706016,0.974,1.0,False,False

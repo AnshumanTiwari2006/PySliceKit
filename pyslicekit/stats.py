@@ -348,12 +348,10 @@ def _bootstrap_ci_test(
 
     is_significant = overall_metric < lower or overall_metric > upper
 
-    # Pseudo p-value: fraction of bootstrap samples more extreme than overall
-    direction = METRIC_REGISTRY[metric]
-    if direction == MetricDirection.HIGHER_IS_BETTER:
-        pseudo_p = float(np.mean(arr >= overall_metric))
-    else:
-        pseudo_p = float(np.mean(arr <= overall_metric))
+    # Pseudo p-value: 2 * min(P(boot >= null), P(boot <= null))
+    p_greater = float(np.mean(arr >= overall_metric))
+    p_less = float(np.mean(arr <= overall_metric))
+    pseudo_p = 2 * min(p_greater, p_less)
 
     return is_significant, pseudo_p, "bootstrap_ci"
 

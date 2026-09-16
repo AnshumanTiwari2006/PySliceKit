@@ -1,0 +1,29 @@
+Total eligible segments: 24
+BH agreement: 24/24 segments match
+Bonferroni agreement: 24/24 segments match
+OVERALL STATUS: PASS
+
+HouseAge=Q4(37–52) & ocean_proximity=NEAR OCEAN | raw_p=0.038000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q3(29–37) & ocean_proximity=NEAR BAY | raw_p=0.040000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q3(29–37) & ocean_proximity=<1H OCEAN | raw_p=0.028000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q3(29–37) & ocean_proximity=INLAND | raw_p=0.056000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q3(29–37) | raw_p=0.002000 | manual_BH_sig=True | library_BH_sig=True | MATCH=True | manual_Bonf_sig=True | library_Bonf_sig=True | MATCH=True
+HouseAge=Q1(0.999–18) & ocean_proximity=INLAND | raw_p=0.142000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q4(37–52) | raw_p=0.146000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+ocean_proximity=NEAR OCEAN | raw_p=0.174000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q1(0.999–18) & ocean_proximity=NEAR OCEAN | raw_p=0.460000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q3(29–37) & ocean_proximity=NEAR OCEAN | raw_p=0.524000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+ocean_proximity=<1H OCEAN | raw_p=0.166000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q2(18–29) & ocean_proximity=INLAND | raw_p=0.552000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q1(0.999–18) | raw_p=0.270000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q2(18–29) & ocean_proximity=NEAR BAY | raw_p=0.634000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q4(37–52) & ocean_proximity=NEAR BAY | raw_p=0.718000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q2(18–29) & ocean_proximity=NEAR OCEAN | raw_p=0.680000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q4(37–52) & ocean_proximity=INLAND | raw_p=0.750000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q2(18–29) | raw_p=0.508000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q2(18–29) & ocean_proximity=<1H OCEAN | raw_p=0.814000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+ocean_proximity=NEAR BAY | raw_p=0.588000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q4(37–52) & ocean_proximity=<1H OCEAN | raw_p=0.842000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+ocean_proximity=INLAND | raw_p=0.674000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q1(0.999–18) & ocean_proximity=<1H OCEAN | raw_p=0.914000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True
+HouseAge=Q1(0.999–18) & ocean_proximity=NEAR BAY | raw_p=0.940000 | manual_BH_sig=False | library_BH_sig=False | MATCH=True | manual_Bonf_sig=False | library_Bonf_sig=False | MATCH=True

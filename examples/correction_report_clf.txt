@@ -1,0 +1,13 @@
+Total segments evaluated: 24
+Eligible for testing: 11
+Correction method: fdr_bh
+Alpha value: 0.05
+
+Significant before correction: 2
+Significant after correction: 1
+
+SEGMENTS THAT LOST SIGNIFICANCE AFTER CORRECTION:
+mean texture=Q3(19.3–22.4) | n=35 | gap=-0.0921 | p_value=0.0380 | p_value_corrected=0.2092
+
+SEGMENTS THAT REMAIN SIGNIFICANT AFTER CORRECTION:
+mean radius=Q3(13.5–15.9) | n=35 | gap=-0.0773 | p_value=0.0019 | p_value_corrected=0.0213

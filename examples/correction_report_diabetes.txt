@@ -1,0 +1,11 @@
+Total segments evaluated: 15
+Eligible for testing: 7
+Correction method: fdr_bh
+Alpha value: 0.05
+
+Significant before correction: 0
+Significant after correction: 0
+
+SEGMENTS THAT LOST SIGNIFICANCE AFTER CORRECTION:
+
+SEGMENTS THAT REMAIN SIGNIFICANT AFTER CORRECTION:
