@@ -93,7 +93,7 @@ When you call `pyslicekit.evaluate()`, PySliceKit automatically divides your tes
 
 ## Visualizing Model Blind Spots
 
-PySliceKit generates visual reports that help you understand subgroup performance.
+PySliceKit library generates visual reports that help you understand subgroup performance.
 
 ### Heatmap
 
