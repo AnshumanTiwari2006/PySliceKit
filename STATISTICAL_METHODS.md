@@ -502,3 +502,4 @@ For the source code and development history, visit the [PySliceKit repository](h
 The mathematical explanations in this document describe the statistical concepts used in subgroup analysis.
 
 The exact implementation, assumptions, and available parameters should be verified against the corresponding PySliceKit source code and API documentation.
+Do fork and edit in, if you need something to add here.
