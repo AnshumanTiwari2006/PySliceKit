@@ -173,7 +173,7 @@ To be updated.
 
 See the complete [CHANGELOG.md](https://github.com/AnshumanTiwari2006/PySliceKit/blob/main/CHANGELOG.md) for version history and release details.
 
-------------------
+--------------------------------------------------------------
 
 ## License
 
