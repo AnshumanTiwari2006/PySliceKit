@@ -10,9 +10,9 @@ This document explains the statistical methods used by PySliceKit, including sub
 
 Let the complete evaluation dataset be:
 
-\[
+$$
 D = \{(x_i, y_i, \hat{y}_i)\}_{i=1}^{N}
-\]
+$$
 
 where:
 
@@ -25,15 +25,15 @@ PySliceKit calculates the selected evaluation metric on the complete dataset.
 
 This is called the **global metric**:
 
-\[
+$$
 M_{\text{global}} = M(D)
-\]
+$$
 
 For a subgroup \(S\), PySliceKit calculates:
 
-\[
+$$
 M_{\text{segment}} = M(S)
-\]
+$$
 
 A subgroup may represent:
 
@@ -48,10 +48,10 @@ A subgroup may represent:
 
 PySliceKit calculates the difference between subgroup performance and global performance using:
 
-\[
+$$
 \text{Gap} =
 M_{\text{segment}} - M_{\text{global}}
-\]
+$$
 
 The interpretation of the gap depends on the selected metric.
 
@@ -100,10 +100,10 @@ For example, a dataset may be divided into subgroups such as:
 
 For a subgroup defined by multiple features, we can represent the subgroup as:
 
-\[
+$$
 S =
 \{x : x_{j_1}=v_1,\ldots,x_{j_k}=v_k\}
-\]
+$$
 
 The slicing depth determines the maximum number of columns used to construct a subgroup.
 
@@ -152,21 +152,21 @@ The selected metric is calculated globally and separately for each subgroup.
 
 For example, classification accuracy is defined as:
 
-\[
+$$
 \text{Accuracy}
 =
 \frac{\text{Number of correct predictions}}
 {\text{Total number of predictions}}
-\]
+$$
 
 For a subgroup \(S\), subgroup accuracy is:
 
-\[
+$$
 \text{Accuracy}_{S}
 =
 \frac{\text{Correct predictions in }S}
 {|S|}
-\]
+$$
 
 where \(|S|\) is the number of observations in the subgroup.
 
@@ -186,11 +186,11 @@ The test compares the subgroup proportion with the reference proportion.
 
 A simplified test statistic can be written as:
 
-\[
+$$
 z =
 \frac{p_s-p_g}
 {\sqrt{\frac{p_g(1-p_g)}{n_s}}}
-\]
+$$
 
 The test statistic is used to calculate a p-value under the assumptions of the selected statistical test.
 
@@ -238,9 +238,9 @@ The bootstrap process is:
 
 If \(B\) bootstrap samples are generated, the resulting metric estimates can be represented as:
 
-\[
+$$
 M_1^*, M_2^*, \ldots, M_B^*
-\]
+$$
 
 These values form the empirical bootstrap distribution.
 
@@ -252,14 +252,14 @@ A percentile-based confidence interval can be calculated from the bootstrap dist
 
 For a 95% confidence interval:
 
-\[
+$$
 CI_{95\%}
 =
 \left[
 Q_{0.025},
 Q_{0.975}
 \right]
-\]
+$$
 
 where:
 
@@ -278,17 +278,17 @@ A two-tailed test considers deviations in both directions.
 
 The null hypothesis can be expressed as:
 
-\[
+$$
 H_0:
 M_{\text{segment}} = M_{\text{global}}
-\]
+$$
 
 The alternative hypothesis is:
 
-\[
+$$
 H_1:
 M_{\text{segment}} \neq M_{\text{global}}
-\]
+$$
 
 This approach considers both:
 
@@ -324,17 +324,17 @@ Each subgroup can represent a separate statistical hypothesis.
 
 If every hypothesis is tested at a significance level of:
 
-\[
+$$
 \alpha = 0.05
-\]
+$$
 
 the probability of obtaining at least one false-positive result increases as the number of tests grows.
 
 For \(m\) independent tests, the probability of obtaining at least one false positive can be expressed as:
 
-\[
+$$
 1-(1-\alpha)^m
-\]
+$$
 
 This is known as the **multiple-comparisons problem**.
 
@@ -348,19 +348,19 @@ The Bonferroni method controls the family-wise error rate by adjusting the signi
 
 If \(m\) hypotheses are tested and the desired significance level is \(\alpha\), the adjusted threshold is:
 
-\[
+$$
 \alpha_{\text{adjusted}}
 =
 \frac{\alpha}{m}
-\]
+$$
 
 A hypothesis is considered significant under the Bonferroni threshold when:
 
-\[
+$$
 p_i
 \leq
 \frac{\alpha}{m}
-\]
+$$
 
 where \(p_i\) is the original p-value for hypothesis \(i\).
 
@@ -383,7 +383,7 @@ Suppose there are \(m\) p-values.
 
 First, sort the p-values in ascending order:
 
-\[
+$$
 p_{(1)}
 \leq
 p_{(2)}
@@ -391,23 +391,23 @@ p_{(2)}
 \cdots
 \leq
 p_{(m)}
-\]
+$$
 
 For a selected false-discovery-rate threshold \(q\), calculate:
 
-\[
+$$
 \frac{i}{m}q
-\]
+$$
 
 for each ranked p-value \(p_{(i)}\).
 
 Find the largest index \(k\) satisfying:
 
-\[
+$$
 p_{(k)}
 \leq
 \frac{k}{m}q
-\]
+$$
 
 The hypotheses associated with the qualifying ranked p-values are considered significant under the procedure.
 
